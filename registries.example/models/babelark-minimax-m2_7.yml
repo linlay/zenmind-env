@@ -1,0 +1,15 @@
+key: babelark-minimax-m2_7
+provider: babelark
+protocol: OPENAI
+modelId: MiniMax-M2.7
+isReasoner: true
+isFunction: true
+maxTokens: 204800
+maxInputTokens: 196608
+maxOutputTokens: 8192
+pricing:
+  promptPointsPer1k: 15
+  completionPointsPer1k: 45
+  perCallPoints: 0
+  priceRatio: 1.0
+  tiers: []

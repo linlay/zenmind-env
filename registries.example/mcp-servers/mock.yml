@@ -1,0 +1,6 @@
+serverKey: mock
+baseUrl: http://mcp-server-mock:8080
+endpointPath: "/mcp"
+enabled: true
+toolPrefix: mock
+readTimeoutMs: 15000

@@ -1,0 +1,5 @@
+name: Example Team
+defaultAgentKey: dailyOfficeAssistant
+agentKeys:
+- dailyOfficeAssistant
+- zenmi

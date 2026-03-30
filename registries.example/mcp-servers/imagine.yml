@@ -1,0 +1,5 @@
+serverKey: imagine
+baseUrl: http://mcp-server-imagine:8080
+endpointPath: "/mcp"
+enabled: true
+readTimeoutMs: 60000

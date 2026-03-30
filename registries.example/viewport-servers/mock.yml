@@ -1,0 +1,3 @@
+serverKey: mock
+baseUrl: http://mcp-server-mock:8080
+endpointPath: "/mcp"

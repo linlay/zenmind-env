@@ -1,0 +1,33 @@
+key: bailian-qwen3-vl-plus
+provider: bailian
+protocol: OPENAI
+modelId: qwen3-vl-plus
+isReasoner: true
+isFunction: true
+maxTokens: 262144
+maxInputTokens: 258048
+maxOutputTokens: 32768
+pricing:
+  promptPointsPer1k: 40
+  completionPointsPer1k: 120
+  perCallPoints: 0
+  priceRatio: 1.0
+  tiers:
+    - minInputTokens: 0
+      maxInputTokens: 32000
+      promptPointsPer1k: 30
+      completionPointsPer1k: 90
+      perCallPoints: 0
+      priceRatio: 1.0
+    - minInputTokens: 32001
+      maxInputTokens: 128000
+      promptPointsPer1k: 40
+      completionPointsPer1k: 120
+      perCallPoints: 0
+      priceRatio: 1.1
+    - minInputTokens: 128001
+      maxInputTokens: 256000
+      promptPointsPer1k: 60
+      completionPointsPer1k: 180
+      perCallPoints: 0
+      priceRatio: 1.2

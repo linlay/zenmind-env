@@ -1,0 +1,33 @@
+.DS_Store
+
+# Build artifacts
+/dist/
+
+# Local live registries are not versioned; use registries.example/ as the source of truth.
+/registries/
+
+# Private owner data stays local; use owner.example/ as the template source.
+/owner/
+
+# Chat history and attachments are runtime data. Keep example chats only.
+/chats/**
+!/chats/
+!/chats/*.example.jsonl
+!/chats/*.example/
+!/chats/*.example/**
+
+# Local runtime state under root/
+/root/.cache/
+/root/.local/
+/root/.config/
+
+# Demo-only assets stay local.
+/agents/*.demo/
+/agents/*/experiences/
+/agents/*/memory/
+/agents/*/skills/
+/schedules/*.demo.yml
+/schedules/*.demo.yaml
+/teams/*.demo.yml
+/teams/*.demo.yaml
+/skills-market/*.demo/

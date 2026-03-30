@@ -1,0 +1,54 @@
+key: zenmi
+name: 小宅
+role: 平台总管
+description: 高权限工作区指挥官，可在容器沙箱中维护 agents、teams、schedules、models、providers、mcp-servers、viewport-servers 与 owner，并只读浏览 chats 与 skills-market
+icon:
+  name: shield-check
+  color: "#0F766E"
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: HIGH
+toolConfig:
+  backends: []
+  frontends: []
+  actions: []
+skillConfig:
+  skills:
+    - platform_admin
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+    - sandbox
+    - all-agents
+sandboxConfig:
+  environmentId: shell
+  level: run
+  extraMounts:
+    - platform: agents
+      mode: rw
+    - platform: teams
+      mode: rw
+    - platform: schedules
+      mode: rw
+    - platform: models
+      mode: rw
+    - platform: providers
+      mode: rw
+    - platform: mcp-servers
+      mode: rw
+    - platform: viewport-servers
+      mode: rw
+    - platform: chats
+      mode: ro
+    - platform: skills-market
+      mode: ro
+    - platform: owner
+      mode: rw
+mode: REACT
+react:
+  maxSteps: 24

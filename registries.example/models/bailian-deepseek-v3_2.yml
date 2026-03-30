@@ -1,0 +1,15 @@
+key: bailian-deepseek-v3_2
+provider: bailian
+protocol: OPENAI
+modelId: deepseek-v3.2
+isReasoner: true
+isFunction: true
+maxTokens: 131072
+maxInputTokens: 98304
+maxOutputTokens: 65536
+pricing:
+  promptPointsPer1k: 12
+  completionPointsPer1k: 36
+  perCallPoints: 0
+  priceRatio: 1.0
+  tiers: []
