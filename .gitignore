@@ -16,11 +16,13 @@
 !/chats/*.example/
 !/chats/*.example/**
 
-# Local runtime state under root/
-/root/.cache/
-/root/.local/
-/root/.config/
-/root/.npm/
+# Local runtime state under root/ is ignored by default.
+# Keep only checked-in .example templates.
+/root/**
+!/root/
+!/root/*.example
+!/root/*.example/
+!/root/*.example/**
 
 # Demo-only assets stay local.
 /agents/*.demo/
