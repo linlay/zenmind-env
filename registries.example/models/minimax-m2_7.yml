@@ -1,5 +1,5 @@
-key: babelark-minimax-m2_7
-provider: babelark
+key: minimax-m2_7
+provider: minimax
 protocol: OPENAI
 modelId: MiniMax-M2.7
 isReasoner: true
@@ -13,12 +13,3 @@ pricing:
   perCallPoints: 0
   priceRatio: 1.0
   tiers: []
-compat:
-  response:
-    reasoningFormats:
-      - REASONING_CONTENT
-      - THINK_TAG_CONTENT
-    thinkTag:
-      start: "<think>"
-      end: "</think>"
-      stripFromContent: true

@@ -1,0 +1,19 @@
+key: minimax
+baseUrl: https://api.minimaxi.com/v1
+apiKey: YOUR_MINIMAX_API_KEY
+defaultModel: MiniMax-M2.7
+protocols:
+  OPENAI:
+    compat:
+      request:
+        whenReasoningEnabled:
+          reasoning_split: true
+      response:
+        reasoningFormats:
+          - REASONING_DETAILS_TEXT
+          - REASONING_CONTENT
+          - THINK_TAG_CONTENT
+        thinkTag:
+          start: "<think>"
+          end: "</think>"
+          stripFromContent: true

@@ -39,6 +39,10 @@ sandboxConfig:
   level: run
 budget:
   runTimeoutMs: 1800000
+  model:
+    maxCalls: 100
+  tool:
+    maxCalls: 60
 mode: REACT
 react:
   maxSteps: 30
