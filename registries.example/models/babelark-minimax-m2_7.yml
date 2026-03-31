@@ -6,7 +6,7 @@ isReasoner: true
 isFunction: true
 maxTokens: 204800
 maxInputTokens: 196608
-maxOutputTokens: 8192
+maxOutputTokens: 65536
 pricing:
   promptPointsPer1k: 15
   completionPointsPer1k: 45

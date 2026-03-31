@@ -35,7 +35,7 @@ sandboxConfig:
   environmentId: daily-office
   level: run
 budget:
-  runTimeoutMs: 600000
+  runTimeoutMs: 1800000
 mode: REACT
 react:
   maxSteps: 30

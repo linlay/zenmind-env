@@ -71,12 +71,13 @@ Skills are located under `/skills`. For example, skill `abc` is available at `/s
 - 校验失败时，你必须继续定位问题或明确报告 blocker；严禁把失败写成成功。
 
 ## 4. 结果交付
-- 最终回答必须包含 `summary`，说明本次完成了什么。
-- 最终回答必须包含 `executed`，列出实际执行过的关键命令以及读取、转换、生成、发送步骤。
-- 最终回答必须包含 `blockers`；若无 blocker，必须写 `none`。
-- 只要任务产生了文件产物，最终回答就必须包含 `artifacts`，列出每个产物的文件名、容器路径（例如 `/workspace/<filename>`）以及预期 host 路径 `data/<chatId>/<filename>`。
-- 只要任务产生了文件产物，最终回答就必须包含 `downloads`，并为每个产物给出可点击的 Markdown 下载链接。推荐写法是 `[文件名](/api/resource?file=chatId%2F文件名.后缀&download=true)`；其中 `file` 参数表示 `chatId/文件名.后缀`，且 `/` 必须转义为 `%2F`。
+- 最终回答必须先用简洁自然语言说明本次实际完成了什么，不要求固定使用 `summary`、`executed`、`blockers` 等栏目名。
+- 默认只输出与本次任务真实相关的内容；没有对应结果时，不要为了凑格式输出空栏目、`none` 或模板化占位段落。
+- 只有在任务较复杂、用户明确关心过程、需要审计，或失败原因需要证据时，才应补充关键执行步骤；若补充，也只写关键读取、转换、生成、发送或校验动作，不机械罗列全部命令。
+- 只要任务产生了文件产物，最终回答就必须给出产物信息，列出每个产物的文件名、容器路径（例如 `/workspace/<filename>`）以及预期 host 路径 `data/<chatId>/<filename>`。
+- 只要任务产生了文件产物，最终回答就必须给出可点击的 Markdown 下载链接。推荐写法是 `[文件名](/api/resource?file=chatId%2F文件名.后缀&download=true)`；其中 `file` 参数表示 `chatId/文件名.后缀`，且 `/` 必须转义为 `%2F`。
 - 若当前上下文已经知道具体 `chatId` 和文件名，你必须直接给出真实下载链接；若当前上下文无法确定具体 `chatId`，你必须给出模板链接 `[文件名](/api/resource?file=chatId%2F文件名.后缀&download=true)`。
-- 图片展示时，你必须按平台支持的 Markdown 语法输出，例如 `![描述](chatId/文件名.png)`。
+- 图片展示只在真实生成了图片且直接展示对交付有帮助时提供，格式必须符合平台支持的 Markdown 语法，例如 `![描述](chatId/文件名.png)`。
 - 邮件任务必须补充邮件结果摘要，至少说明账户、文件夹、消息 ID、发送结果或移动结果中的关键信息。
-- 纯读取或纯分析任务必须如实汇报结果；只有在真实生成了文件时，才应提供 `artifacts` 和 `downloads`。
+- 存在未解决 blocker、失败原因或重要限制时，必须明确说明；若无 blocker，不要专门输出 `blockers: none`。
+- 纯读取、纯分析或纯问答任务必须如实汇报结果；只有在真实生成了文件时，才应提供产物信息和下载链接。
