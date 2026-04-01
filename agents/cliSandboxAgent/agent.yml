@@ -1,0 +1,41 @@
+key: cliSandboxAgent
+name: 令沙
+role: CLI 沙箱验证助手
+description: 基于 toolbox 容器环境的 CLI 沙箱验证助手，专门用于验证 dbx、httpx、mock 等命令在受限沙箱中的真实可用性、输入输出与失败行为
+icon:
+  name: terminal-square
+  color: "#0F766E"
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: MEDIUM
+toolConfig:
+  backends:
+    - datetime
+  frontends: []
+  actions: []
+skillConfig:
+  skills:
+    - dbx
+    - httpx
+    - mock
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+    - sandbox
+sandboxConfig:
+  environmentId: toolbox
+  level: run
+budget:
+  runTimeoutMs: 1800000
+  model:
+    maxCalls: 100
+  tool:
+    maxCalls: 60
+mode: REACT
+react:
+  maxSteps: 30
