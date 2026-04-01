@@ -36,6 +36,32 @@ cp -R owner.example owner
 - 在 `owner/` 中完成真实 owner 档案初始化
 - 在 `root/` 下写入本地容器家目录配置，不把真实密钥和状态文件提交到 Git
 
+### 如何配置 owner/
+
+`owner/` 是当前工作区的真实 owner 目录，只在本地使用，不提交到 Git。
+
+建议步骤：
+
+1. 先从模板复制生成本地目录：
+
+```bash
+cp -R owner.example owner
+```
+
+2. 再按 [`owner.example/BOOTSTRAP.md`](/Users/linlay/Project/zenmind/zenmind-env/owner.example/BOOTSTRAP.md) 的说明完成初始化。
+3. 把真实身份、偏好、私有资料、密钥和一次性运行状态都保留在 `owner/` 中，不要回写到 `owner.example/`。
+
+### 如何配置 root/
+
+`root/` 是本地容器家目录，用来承载运行时配置、缓存和工具状态，不是仓库事实源。
+
+使用约定：
+
+- 只把 `.example` 模板纳入 Git，例如 `root/.zenmind-config.example`、`root/.config.example/`
+- 真实 `.config/`、`.cache/`、`.local/`、`.nuget/`、`.npm/`、`.dotnet/` 等目录都视为本地运行态
+- 新增模板时，优先使用 `.example` 命名，并与 `.gitignore` 规则保持一致
+- 真实本地配置和缓存只留在 `root/` 下，不要把运行态文件提交到仓库
+
 ### 打包发布
 
 当前仓库自带 [`package.sh`](/Users/linlay/Project/zenmind/zenmind-env/package.sh)，会按固定命名规则生成可发布归档：
@@ -61,6 +87,22 @@ cp -R owner.example owner
 - [`owner.example/`](/Users/linlay/Project/zenmind/zenmind-env/owner.example)：owner 初始化模板，提交并参与打包。
 - `owner/`：真实 owner 档案，只本地使用。
 - [`root/`](/Users/linlay/Project/zenmind/zenmind-env/root)：本地运行容器家目录。只保留 `.example` 模板，真实 `.config`、缓存和状态文件不提交。
+
+### 如何维护 owner/ 与 root/
+
+#### owner/
+
+- `owner/` 是真实本地目录，不提交。
+- 初始化时从 [`owner.example/`](/Users/linlay/Project/zenmind/zenmind-env/owner.example) 复制生成。
+- 模板入口以 [`owner.example/BOOTSTRAP.md`](/Users/linlay/Project/zenmind/zenmind-env/owner.example/BOOTSTRAP.md) 为准。
+- 真实身份、偏好、私有资料、密钥和一次性状态都应只留在 `owner/`。
+
+#### root/
+
+- `root/` 是本地运行容器家目录，不作为共享配置事实源。
+- 只允许 `.example` 模板进入 Git，例如 `root/.zenmind-config.example`、`root/.config.example/`。
+- 真实 `.config/`、`.cache/`、`.local/`、`.nuget/`、`.npm/`、`.dotnet/` 等都属于运行态。
+- 新增模板时，优先使用 `.example` 命名，并与 `.gitignore` 规则保持一致。
 
 ### Git 与打包规则
 
