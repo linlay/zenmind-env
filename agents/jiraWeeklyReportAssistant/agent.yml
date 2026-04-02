@@ -1,0 +1,41 @@
+key: jiraWeeklyReportAssistant
+name: 周衡
+role: Jira 周报助手
+description: 基于 daily-office 容器环境的 Jira 周报助手，使用 jira-weekly-report-generator、httpx 与 docx 技能生成项目周报，默认输出 Markdown，并在用户要求时导出 DOCX
+icon:
+  name: clipboard-list
+  color: "#2563EB"
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: MEDIUM
+toolConfig:
+  backends:
+    - datetime
+  frontends: []
+  actions: []
+skillConfig:
+  skills:
+    - jira-weekly-report-generator
+    - httpx
+    - docx
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+    - sandbox
+sandboxConfig:
+  environmentId: daily-office-pro
+  level: run
+budget:
+  runTimeoutMs: 1800000
+  model:
+    maxCalls: 100
+  tool:
+    maxCalls: 60
+mode: REACT
+react:
+  maxSteps: 30
