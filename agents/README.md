@@ -21,6 +21,14 @@ agents/<agent-id>/
   AGENTS.md
 ```
 
+提示词配置约定：
+
+- `ONESHOT` / `REACT`：在 `agent.yml` 顶层写 `promptFile`。
+- `PLAN_EXECUTE`：在 `planExecute.plan.promptFile`、`planExecute.execute.promptFile`、`planExecute.summary.promptFile` 分别写。
+- `promptFile` 可以是单个字符串，也可以是字符串数组；如果写多个，会按顺序拼装成 system prompt。
+- 如果不写 `promptFile`，默认读取同目录下的 `AGENTS.md`。
+- `SOUL.md` 仍然负责角色边界与长期行为，不需要写进 `promptFile`。
+
 如果只是本地演示或试验，请使用 `*.demo` 目录名，例如 `myAgent.demo/`，不要和正式 agent 混用。
 
 ## 3. 提交边界

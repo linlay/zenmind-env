@@ -12,7 +12,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   backends:
-    - datetime
+    - _datetime_
+    - _artifact_publish_
   frontends: []
   actions: []
 skillConfig:
@@ -37,5 +38,10 @@ budget:
   tool:
     maxCalls: 60
 mode: REACT
+promptFile:
+  - AGENTS.10-basics.md
+  - AGENTS.20-discovery.md
+  - AGENTS.30-routing-and-query.md
+  - AGENTS.40-output-and-validation.md
 react:
   maxSteps: 30

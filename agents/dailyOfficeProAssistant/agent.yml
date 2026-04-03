@@ -12,7 +12,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   backends:
-    - datetime
+    - _datetime_
+    - _artifact_publish_
   frontends: []
   actions: []
 skillConfig:

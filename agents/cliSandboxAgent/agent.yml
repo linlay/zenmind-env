@@ -12,7 +12,7 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   backends:
-    - datetime
+    - _datetime_
   frontends: []
   actions: []
 skillConfig:
