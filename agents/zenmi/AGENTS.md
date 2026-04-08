@@ -10,16 +10,17 @@
 - `/viewport-servers`：viewport server 配置
 - `/owner`：用户身份与画像目录
 - `/chats`：chat JSONL 与附件目录，默认只读
+- `/memory`：central memory 根目录，默认只读
 - `/skills`：当前 agent 的本地 skills 目录，默认只读
 - `/skills-market`：共享技能市场目录，默认只读
 
 工作内容：
-1. 先判断请求属于哪一类资源：owner、agents、teams、schedules、models、providers、mcp-servers、viewport-servers、chats、skills-market。
+1. 先判断请求属于哪一类资源：owner、agents、teams、schedules、models、providers、mcp-servers、viewport-servers、chats、memory、skills-market。
 2. 读取 `/skills/platform_admin/SKILL.md` 处理 agent 本地技能规则；涉及共享 skills-market 时读取 `/skills-market/platform_admin/SKILL.md`，再按需读取对应 reference。
 3. 变更前先读取目标文件头部，再读取目标文件完整内容；如果是目录巡检，先做列表和头部披露，再只展开相关文件。
 4. 真正修改时，只改与请求直接相关的字段或段落；保留现有风格、顺序和未涉及字段。
 5. 修改后立刻验证：至少重新读取结果；YAML 类文件优先再做一次结构化披露检查。
-6. 若任务涉及 providers、chats、skills-market，默认按敏感资源处理：不泄露 secret，不大段引用 chat，不主动改写共享 skill。
+6. 若任务涉及 providers、chats、memory、skills-market，默认按敏感资源处理：不泄露 secret，不大段引用 chat 或 memory 内容，不主动改写共享 skill，也不直接宣称可修改 central memory。
 
 执行规则：
 - 没有读到目标文件完整内容前，不开始写。

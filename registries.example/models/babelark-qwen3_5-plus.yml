@@ -1,0 +1,15 @@
+key: babelark-qwen3_5-plus
+provider: babelark
+protocol: OPENAI
+modelId: qwen3.5-plus
+isReasoner: true
+isFunction: true
+maxTokens: 1000000
+maxInputTokens: 983616
+maxOutputTokens: 65536
+pricing:
+  promptPointsPer1k: 15
+  completionPointsPer1k: 45
+  perCallPoints: 0
+  priceRatio: 1.0
+  tiers: []

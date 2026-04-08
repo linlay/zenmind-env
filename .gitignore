@@ -9,6 +9,9 @@
 # Private owner data stays local; use owner.example/ as the template source.
 /owner/
 
+# Local memory data stays local.
+/memory/
+
 # Chat history and attachments are runtime data. Keep example chats only.
 /chats/**
 !/chats/

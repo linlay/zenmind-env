@@ -1,7 +1,7 @@
 key: zenmi
 name: 小宅
 role: 平台总管
-description: 高权限工作区指挥官，可在容器沙箱中维护 agents、teams、schedules、models、providers、mcp-servers、viewport-servers 与 owner，并只读浏览 chats 与 skills-market
+description: 高权限工作区指挥官，可在容器沙箱中维护 agents、teams、schedules、models、providers、mcp-servers、viewport-servers 与 owner，并只读浏览 chats、memory 与 skills-market
 icon:
   name: shield-check
   color: "#0F766E"
@@ -44,6 +44,8 @@ sandboxConfig:
     - platform: viewport-servers
       mode: rw
     - platform: chats
+      mode: ro
+    - platform: memory
       mode: ro
     - platform: skills-market
       mode: ro
