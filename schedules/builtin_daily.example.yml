@@ -1,9 +1,9 @@
-name: 内置占位计划任务
-description: 预留内置计划任务同步链路的占位任务，默认禁用
+name: 5 段 Cron 示例计划任务（每日9点17分）
+description: 用于展示 5 段 cron（分 时 日 月 周）写法的示例计划任务，默认禁用
 enabled: false
-cron: "0 0 0 * * *"
+cron: "17 9 * * *"
 agentKey: modePlain.demo
 environment:
   zoneId: Asia/Shanghai
 query:
-  message: 这是一个内置占位计划任务，仅用于保留 schedules 资源同步能力，请忽略。
+  message: 这是一个用于展示 5 段 cron 配置写法的示例计划任务，请勿作为正式任务直接启用。
