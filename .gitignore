@@ -29,11 +29,15 @@
 
 # Demo-only assets stay local.
 /agents/*.demo/
+/agents/zenmi/agent.yml
 /agents/*/experiences/
 /agents/*/memory/
 /agents/*/skills/
-/schedules/*.demo.yml
-/schedules/*.demo.yaml
+/schedules/**
+!/schedules/
+!/schedules/README.md
+!/schedules/*.example.yml
+!/schedules/*.example.yaml
 /teams/*.demo.yml
 /teams/*.demo.yaml
 /skills-market/*.demo/

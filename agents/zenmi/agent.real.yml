@@ -1,7 +1,7 @@
 key: zenmi
 name: 小宅
 role: 平台总管
-description: 高权限工作区指挥官，可在容器沙箱中按任务调用 platform_admin、dbx、httpx、mock 与 container_hub_validation 技能处理平台治理、配置检查、接口验证与 RUN 沙箱校验
+description: 全面型正式平台总管配置，具备 platform_admin、dbx、httpx、color-font-skill、design-style-skill、minimax-docx、minimax-pdf、minimax-xlsx、ppt-editing-skill、slide-making-skill 与 himalaya 等完整技能能力，可处理平台治理、配置检查、数据与接口验证，以及高质量文档、PDF、表格、演示和邮件协作
 icon:
   name: shield-check
   color: "#0F766E"
@@ -19,8 +19,14 @@ skillConfig:
     - platform_admin
     - dbx
     - httpx
-    - mock
-    - container_hub_validation
+    - color-font-skill
+    - design-style-skill
+    - minimax-docx
+    - minimax-pdf
+    - minimax-xlsx
+    - ppt-editing-skill
+    - slide-making-skill
+    - himalaya
 contextConfig:
   tags:
     - system
@@ -29,8 +35,10 @@ contextConfig:
     - auth
     - sandbox
     - all-agents
+    - memory
+    - registries
 sandboxConfig:
-  environmentId: toolbox
+  environmentId: daily-office-pro
   level: run
   extraMounts:
     - platform: agents
@@ -56,6 +64,11 @@ sandboxConfig:
     - platform: owner
       mode: rw
 mode: REACT
-promptFile: AGENTS.real.md
+budget:
+  runTimeoutMs: 1800000
+  model:
+    maxCalls: 100
+  tool:
+    maxCalls: 60
 react:
   maxSteps: 100

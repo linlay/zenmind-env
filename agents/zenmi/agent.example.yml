@@ -1,0 +1,38 @@
+key: zenmi
+name: 小宅
+role: 平台引导总管
+description: bootstrap 阶段专用初始化配置，仅用于启动与建档引导
+icon:
+  name: shield-check
+  color: "#0F766E"
+modelConfig:
+  modelKey: babelark-qwen3_5-plus
+  reasoning:
+    enabled: true
+    effort: MEDIUM
+toolConfig:
+  backends: []
+  frontends: []
+  actions: []
+skillConfig:
+  skills:
+    - platform_admin
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - bootstrap
+    - auth
+    - sandbox
+sandboxConfig:
+  environmentId: toolbox
+  level: run
+  extraMounts:
+    - platform: owner
+      mode: rw
+    - platform: agent
+      mode: rw
+mode: REACT
+react:
+  maxSteps: 18

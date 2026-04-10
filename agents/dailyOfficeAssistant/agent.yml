@@ -43,4 +43,4 @@ budget:
     maxCalls: 60
 mode: REACT
 react:
-  maxSteps: 30
+  maxSteps: 100
