@@ -6,7 +6,7 @@ icon:
   name: shield-check
   color: "#0F766E"
 modelConfig:
-  modelKey: babelark-qwen3_5-397b-a17b
+  modelKey: babelark-qwen3_5-plus
   reasoning:
     enabled: true
     effort: HIGH
