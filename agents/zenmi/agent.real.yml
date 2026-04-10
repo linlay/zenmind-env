@@ -11,7 +11,10 @@ modelConfig:
     enabled: true
     effort: HIGH
 toolConfig:
-  backends: []
+  backends:
+    - _artifact_publish_
+    - _datetime_
+    - confirm_dialog
   frontends: []
   actions: []
 skillConfig:

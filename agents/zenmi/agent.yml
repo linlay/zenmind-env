@@ -1,7 +1,7 @@
 key: zenmi
 name: 小宅
-role: 平台总管
-description: 高权限工作区指挥官，可在容器沙箱中按任务调用 platform_admin、dbx、httpx、mock 与 container_hub_validation 技能处理平台治理、配置检查、接口验证与 RUN 沙箱校验
+role: 平台引导总管
+description: bootstrap 阶段专用初始化配置，仅用于启动与建档引导
 icon:
   name: shield-check
   color: "#0F766E"
@@ -9,7 +9,7 @@ modelConfig:
   modelKey: babelark-qwen3_5-plus
   reasoning:
     enabled: true
-    effort: HIGH
+    effort: MEDIUM
 toolConfig:
   backends: []
   frontends: []
@@ -17,45 +17,22 @@ toolConfig:
 skillConfig:
   skills:
     - platform_admin
-    - dbx
-    - httpx
-    - mock
-    - container_hub_validation
 contextConfig:
   tags:
     - system
     - context
     - owner
+    - bootstrap
     - auth
     - sandbox
-    - all-agents
 sandboxConfig:
   environmentId: toolbox
   level: run
   extraMounts:
-    - platform: agents
-      mode: rw
-    - platform: teams
-      mode: rw
-    - platform: schedules
-      mode: rw
-    - platform: models
-      mode: rw
-    - platform: providers
-      mode: rw
-    - platform: mcp-servers
-      mode: rw
-    - platform: viewport-servers
-      mode: rw
-    - platform: chats
-      mode: ro
-    - platform: memory
-      mode: ro
-    - platform: skills-market
-      mode: ro
     - platform: owner
       mode: rw
+    - platform: agent
+      mode: rw
 mode: REACT
-promptFile: AGENTS.real.md
 react:
-  maxSteps: 100
+  maxSteps: 18

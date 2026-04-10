@@ -30,8 +30,7 @@
 # Demo-only assets stay local.
 /agents/*.demo/
 /agents/zenmi/agent.yml
-/agents/*/experiences/
-/agents/*/memory/
+/agents/zenmi/AGENTS.md
 /agents/*/skills/
 /schedules/**
 !/schedules/
