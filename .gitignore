@@ -31,6 +31,7 @@
 /agents/*.demo/
 /agents/zenmi/agent.yml
 /agents/zenmi/AGENTS.md
+/agents/zenmi/SOUL.md
 /agents/*/skills/
 /schedules/**
 !/schedules/
