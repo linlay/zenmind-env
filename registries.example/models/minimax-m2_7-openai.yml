@@ -1,4 +1,4 @@
-key: minimax-m2_7
+key: minimax-m2_7-openai
 provider: minimax
 protocol: OPENAI
 modelId: MiniMax-M2.7

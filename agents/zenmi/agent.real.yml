@@ -6,7 +6,7 @@ icon:
   name: shield-check
   color: "#0F766E"
 modelConfig:
-  modelKey: babelark-qwen3_5-plus
+  modelKey: minimax-m2_7-highspeed-openai
   reasoning:
     enabled: true
     effort: HIGH

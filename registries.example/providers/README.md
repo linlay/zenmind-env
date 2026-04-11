@@ -1,6 +1,6 @@
 # Providers Registry
 
-`providers/*.yml` 定义 provider 级配置，适合整条上游 OpenAI 兼容链路都表现一致的场景。
+`providers/*.yml` 定义 provider 级配置，适合同一上游在不同协议下共享地址、鉴权与兼容参数的场景。
 
 常规字段：
 
@@ -15,6 +15,7 @@ OpenAI 兼容扩展字段：
 ```yaml
 protocols:
   OPENAI:
+    endpointPath: /v1/chat/completions
     compat:
       request:
         whenReasoningEnabled:
@@ -28,6 +29,19 @@ protocols:
           start: "<think>"
           end: "</think>"
           stripFromContent: true
+```
+
+Anthropic 协议扩展字段：
+
+```yaml
+protocols:
+  ANTHROPIC:
+    endpointPath: /v1/messages
+    headers:
+      anthropic-version: "2023-06-01"
+    compat:
+      request:
+        whenReasoningEnabled: {}
 ```
 
 适用场景：

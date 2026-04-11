@@ -1,6 +1,6 @@
 # Models Registry
 
-`models/*.yml` 定义模型元数据；当同一个 provider 下不同模型的 OpenAI 兼容行为不一致时，优先把 compat 写在 model 上。
+`models/*.yml` 定义模型元数据；同一底层模型若同时支持 OPENAI / ANTHROPIC，建议拆成不同 `modelKey`。当同一个 provider 下不同模型的协议兼容行为不一致时，优先把 compat 写在 model 上。
 
 常规字段：
 
@@ -14,6 +14,8 @@
 - `maxInputTokens`
 - `maxOutputTokens`
 - `pricing`
+- `headers`（可选）
+- `compat`（可选）
 
 OpenAI 兼容扩展字段：
 
@@ -29,6 +31,18 @@ compat:
       start: "<think>"
       end: "</think>"
       stripFromContent: true
+```
+
+Anthropic 兼容扩展字段：
+
+```yaml
+headers:
+  anthropic-beta: tools-2024-04-04
+compat:
+  request:
+    whenReasoningEnabled:
+      thinking:
+        budget_tokens: 4096
 ```
 
 适用场景：

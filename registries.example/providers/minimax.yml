@@ -1,19 +1,17 @@
 key: minimax
-baseUrl: https://api.minimaxi.com/v1
+baseUrl: https://api.minimaxi.com
 apiKey: YOUR_MINIMAX_API_KEY
-defaultModel: MiniMax-M2.7
+defaultModel: minimax-m2_7-openai
 protocols:
   OPENAI:
+    endpointPath: /v1/chat/completions
     compat:
       request:
         whenReasoningEnabled:
           reasoning_split: true
       response:
-        reasoningFormats:
-          - REASONING_DETAILS_TEXT
-          - REASONING_CONTENT
-          - THINK_TAG_CONTENT
-        thinkTag:
-          start: "<think>"
-          end: "</think>"
-          stripFromContent: true
+        reasoningFormat: REASONING_DETAILS_TEXT
+  ANTHROPIC:
+    endpointPath: /v1/messages
+    headers:
+      anthropic-version: "2023-06-01"
