@@ -1,6 +1,6 @@
 # Schedules
 
-schedule 文件在容器内位于 `/schedules/<schedule-id>.yml`。
+schedule 文件位于 `/schedules/<schedule-id>.yml`。
 
 ## 头部与字段顺序
 
@@ -67,7 +67,7 @@ description: 每天早上 9 点生成摘要
 enabled: true
 cron: "17 9 * * *"
 remainingRuns: 1
-agentKey: modePlain.demo
+agentKey: zenmi
 environment:
   zoneId: Asia/Shanghai
 query:

@@ -1,6 +1,6 @@
-# Configs: Viewport Servers
+# Registries: Viewport Servers
 
-当前工作区 viewport server 配置位于 `/viewport-servers/<server-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/viewport-servers/<server-key>.yml`；示例模板源位于 `.zenmind/registries.example/viewport-servers/<server-key>.yml`。
+当前工作区 viewport server 注册配置位于 `/viewport-servers/<server-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/viewport-servers/<server-key>.yml`；示例模板源位于 `.zenmind/registries.example/viewport-servers/<server-key>.yml`。
 
 ## Loader 契约
 

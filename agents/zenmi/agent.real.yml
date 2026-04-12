@@ -14,8 +14,9 @@ toolConfig:
   backends:
     - _artifact_publish_
     - _datetime_
-    - confirm_dialog
-  frontends: []
+  frontends:
+    - _ask_user_question_
+    - _ask_user_approval_
   actions: []
 skillConfig:
   skills:

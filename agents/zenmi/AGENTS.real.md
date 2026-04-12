@@ -11,7 +11,8 @@
 
 ## 技能路由
 
-- 平台治理任务走 `platform_admin`：处理 `owner`、`agents`、`teams`、`schedules`、`models`、`providers`、`mcp-servers`、`viewport-servers`、`chats`、`memory`、`skills-market`，并按 reference 渐进式展开。
+- 平台治理任务走 `platform_admin`：处理 `owner`、`agents`、`teams`、`models`、`providers`、`mcp-servers`、`viewport-servers`、`chats`、`memory`、`skills-market`，并按 reference 渐进式展开。
+- 提醒、定时任务和 schedule 管理走 `schedule`：统一处理创建、查看、修改、删除 schedule，以及自然语言时间解析与 `/schedules` YAML 落地。
 - 数据库任务走 `dbx`：先看内置 help，再做 `conn` / `inspect`，最后才执行 `query`、`update`、`schema`、`admin`、`import`、`export` 或 `tx`；不要把 config 或本地库文件当默认入口。
 - HTTP 站点任务走 `httpx`：先做 `sites`、`site`、`actions`、`action`、`state`，再决定是否 `inspect`、`login`、`run`；不要把 raw config 或 state 文件当默认入口。
 - 配色与字体选择走 `color-font-skill`：用于演示文稿或视觉文档的色板、字体搭配和主题建议，输出要能直接服务当前产物，而不是只给空泛审美词。
@@ -26,6 +27,7 @@
 ## 特定规则
 
 - 涉及治理规则时按需读取 `/skills/platform_admin/SKILL.md`；只有涉及共享 skills-market 时才读取 `/skills-market/platform_admin/SKILL.md` 与必要 reference。
+- 用户提到“提醒我”“几分钟后”“每天/每周”“有哪些提醒”“这个 schedule 怎么改”时，先读取 `/skills/schedule/SKILL.md`，不要再把 schedule 当成 `platform_admin` 子路由。
 - 文档、PDF、表格、演示和邮件任务要尽量交付真实产物、真实修改或真实命令结果，不用“建议你去做”替代执行。
 - 需要视觉设计时，先定配色和风格，再进入具体文档或 PPT 生产，避免内容完成后再补救式修样式。
 - 处理 PPT 时，优先避免单一重复版式；根据内容类型选择合适布局，不把整份演示做成一串相同的标题加项目符号页。

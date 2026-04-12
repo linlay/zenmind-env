@@ -1,6 +1,6 @@
-# Configs: Providers
+# Registries: Providers
 
-当前工作区 provider 配置位于 `/providers/<provider-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/providers/<provider-key>.yml`；示例模板源位于 `.zenmind/registries.example/providers/<provider-key>.yml`。
+当前工作区 provider 注册配置位于 `/providers/<provider-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/providers/<provider-key>.yml`；示例模板源位于 `.zenmind/registries.example/providers/<provider-key>.yml`。
 
 ## Loader 契约
 

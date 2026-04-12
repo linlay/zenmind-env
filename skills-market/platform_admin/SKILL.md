@@ -1,6 +1,6 @@
 ---
 name: "平台总管技能"
-description: "Use this skill when inspecting or changing ZenMind workspace governance resources: agents, teams, schedules, registries, owner/, chats, and skills-market. It provides the exact file contracts, sensitive-data rules, and a progressive disclosure workflow for safe edits."
+description: "Use this skill when inspecting or changing ZenMind workspace governance resources: agents, teams, registries, owner/, chats, and skills-market. It provides the exact file contracts, sensitive-data rules, and a progressive disclosure workflow for safe edits."
 ---
 
 # 平台总管技能
@@ -11,7 +11,6 @@ description: "Use this skill when inspecting or changing ZenMind workspace gover
 
 - `/agents` -> agent 目录与 prompt 文件
 - `/teams` -> team YAML
-- `/schedules` -> schedule YAML
 - `/registries` -> models / providers / mcp-servers / viewport-servers 等实时注册配置
 - `/zenmind-root/owner` -> 用户身份与画像目录
 - `/chats` -> chat JSONL 与附件目录
@@ -22,19 +21,17 @@ description: "Use this skill when inspecting or changing ZenMind workspace gover
 
 - 问、查、看、改 agent：先读 `references/agents.md`
 - 改 team：先读 `references/teams.md`
-- 问、查、看、改 schedule：先读 `references/schedules.md`
-- 改模型配置：先读 `references/configs-models.md`
-- 改 provider 配置：先读 `references/configs-providers.md`
-- 改 MCP server 配置：先读 `references/configs-mcp-servers.md`
-- 改 viewport server 配置：先读 `references/configs-viewport-servers.md`
+- 改模型注册配置：先读 `references/registries-models.md`
+- 改 provider 注册配置：先读 `references/registries-providers.md`
+- 改 MCP server 注册配置：先读 `references/registries-mcp-servers.md`
+- 改 viewport server 注册配置：先读 `references/registries-viewport-servers.md`
 - 改 `owner/`：先读 `references/owner.md`
 - 查 chat：先读 `references/chats.md`
 - 问、查、看 skills-market 或某个 skill 的能力与结构：先读 `references/skills-market.md`
 
 组件问题示例：
 - 用户问“有哪些 agent”“这个 agent 是干什么的”“它的 mode / tools / sandbox 是什么”：先读 `references/agents.md`
-- 用户问“有哪些计划任务”“这个 schedule 的 cron / enabled 是什么”：先读 `references/schedules.md`
-- 用户问“platform_admin 这个 skill 管哪些组件”：先读 `/skills-market/platform_admin/SKILL.md`，再按需读 `references/agents.md`、`references/schedules.md` 等相关 reference
+- 用户问“platform_admin 这个 skill 管哪些组件”：先读 `/skills-market/platform_admin/SKILL.md`，再按需读 `references/agents.md`、`references/teams.md` 等相关 reference
 
 ## Global Rules
 
@@ -52,11 +49,10 @@ description: "Use this skill when inspecting or changing ZenMind workspace gover
 
 - `references/agents.md`
 - `references/teams.md`
-- `references/schedules.md`
-- `references/configs-models.md`
-- `references/configs-providers.md`
-- `references/configs-mcp-servers.md`
-- `references/configs-viewport-servers.md`
+- `references/registries-models.md`
+- `references/registries-providers.md`
+- `references/registries-mcp-servers.md`
+- `references/registries-viewport-servers.md`
 - `references/owner.md`
 - `references/chats.md`
 - `references/skills-market.md`

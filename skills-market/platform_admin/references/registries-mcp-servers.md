@@ -1,6 +1,6 @@
-# Configs: MCP Servers
+# Registries: MCP Servers
 
-当前工作区 MCP server 配置位于 `/mcp-servers/<server-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/mcp-servers/<server-key>.yml`；示例模板源位于 `.zenmind/registries.example/mcp-servers/<server-key>.yml`。
+当前工作区 MCP server 注册配置位于 `/mcp-servers/<server-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/mcp-servers/<server-key>.yml`；示例模板源位于 `.zenmind/registries.example/mcp-servers/<server-key>.yml`。
 
 ## Loader 契约
 

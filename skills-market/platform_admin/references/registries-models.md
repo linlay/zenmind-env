@@ -1,6 +1,6 @@
-# Configs: Models
+# Registries: Models
 
-当前工作区模型配置位于 `/models/<model-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/models/<model-key>.yml`；示例模板源位于 `.zenmind/registries.example/models/<model-key>.yml`。
+当前工作区模型注册配置位于 `/models/<model-key>.yml`，宿主机运行时目录通常映射到 `.zenmind/registries/models/<model-key>.yml`；示例模板源位于 `.zenmind/registries.example/models/<model-key>.yml`。
 
 ## Loader 契约
 
