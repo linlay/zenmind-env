@@ -1,0 +1,12 @@
+key: codeAssistant
+name: 代码助手
+role: CLI 代码助手
+description: 透传到 CLI 模式代码助手服务，支持代码生成和编辑
+icon:
+  name: terminal
+  color: "#10B981"
+mode: PROXY
+proxyConfig:
+  baseUrl: http://127.0.0.1:3210
+  token: "4ca0ff6b806d7104dace9a87da6a65e9"
+  timeoutMs: 300000

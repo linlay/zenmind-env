@@ -11,11 +11,9 @@ modelConfig:
     enabled: true
     effort: MEDIUM
 toolConfig:
-  backends:
+  tools:
     - _datetime_
     - _artifact_publish_
-  frontends: []
-  actions: []
 skillConfig:
   skills:
     - color-font-skill

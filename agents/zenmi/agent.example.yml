@@ -11,9 +11,7 @@ modelConfig:
     enabled: true
     effort: MEDIUM
 toolConfig:
-  backends: []
-  frontends: []
-  actions: []
+  tools: []
 skillConfig:
   skills:
     - platform_admin

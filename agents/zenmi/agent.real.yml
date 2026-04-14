@@ -11,13 +11,11 @@ modelConfig:
     enabled: true
     effort: HIGH
 toolConfig:
-  backends:
+  tools:
     - _artifact_publish_
     - _datetime_
-  frontends:
     - _ask_user_question_
     - _ask_user_approval_
-  actions: []
 skillConfig:
   skills:
     - platform_admin
