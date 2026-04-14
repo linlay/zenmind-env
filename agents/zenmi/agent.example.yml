@@ -3,8 +3,7 @@ name: 小宅
 role: 平台引导总管
 description: bootstrap 阶段专用初始化配置，仅用于启动与建档引导
 icon:
-  name: shield-check
-  color: "#0F766E"
+  name: apex
 modelConfig:
   modelKey: minimax-m2_7-highspeed-openai
   reasoning:

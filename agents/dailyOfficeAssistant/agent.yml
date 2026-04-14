@@ -3,8 +3,7 @@ name: 文澜
 role: 办公助手
 description: 基于 daily-office 容器环境的综合办公自动化助手，必须按任务调用 docx、pptx、pdf、xlsx 与 himalaya 技能处理文档、演示、PDF、表格和邮件协作
 icon:
-  name: file-text
-  color: "#2563EB"
+  name: ledger
 modelConfig:
   modelKey: babelark-qwen3_5-397b-a17b
   reasoning:

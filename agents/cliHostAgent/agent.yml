@@ -3,8 +3,7 @@ name: 令宿
 role: 宿主机命令助手
 description: 在宿主机上执行白名单命令的助手，用于系统诊断、文件浏览和开发辅助
 icon:
-  name: monitor
-  color: "#2563EB"
+  name: node
 modelConfig:
   modelKey: babelark-qwen3_5-397b-a17b
 toolConfig:

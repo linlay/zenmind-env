@@ -3,8 +3,7 @@ name: 小宅
 role: 平台总管
 description: 全面型正式平台总管配置，具备 platform_admin、dbx、httpx、color-font-skill、design-style-skill、minimax-docx、minimax-pdf、minimax-xlsx、ppt-editing-skill、slide-making-skill 与 himalaya 等完整技能能力，可处理平台治理、配置检查、数据与接口验证，以及高质量文档、PDF、表格、演示和邮件协作
 icon:
-  name: shield-check
-  color: "#0F766E"
+  name: zenith
 modelConfig:
   modelKey: minimax-m2_7-highspeed-openai
   reasoning:
