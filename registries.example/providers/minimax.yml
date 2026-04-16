@@ -7,7 +7,7 @@ protocols:
     endpointPath: /v1/chat/completions
     compat:
       request:
-        whenReasoningEnabled:
+        always:
           reasoning_split: true
       response:
         reasoningFormat: REASONING_DETAILS_TEXT

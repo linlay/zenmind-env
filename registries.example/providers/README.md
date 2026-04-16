@@ -18,8 +18,9 @@ protocols:
     endpointPath: /v1/chat/completions
     compat:
       request:
-        whenReasoningEnabled:
+        always:
           reasoning_split: true
+        whenReasoningEnabled: {}
       response:
         reasoningFormats:
           - REASONING_DETAILS_TEXT
@@ -51,6 +52,8 @@ protocols:
 
 说明：
 
+- `request.always` 会无条件附加到请求体，适合 `reasoning_split` 这类返回格式或兼容开关
+- MiniMax 的 `reasoning_split` 应放在 `request.always`
 - `request.whenReasoningEnabled` 只会在 agent/llm 已开启 reasoning 时附加到请求体
 - 不允许覆盖内建字段：`model`、`stream`、`messages`、`reasoning`、`tools` 等
 - `response.reasoningFormats` 用来声明上游会怎样返回 reasoning

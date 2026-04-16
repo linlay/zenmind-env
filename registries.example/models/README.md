@@ -22,6 +22,7 @@ OpenAI 兼容扩展字段：
 ```yaml
 compat:
   request:
+    always: {}
     whenReasoningEnabled: {}
   response:
     reasoningFormats:
@@ -56,9 +57,10 @@ compat:
 - 运行时会先读取 provider 级 compat
 - 再叠加 model 级 compat
 - model 级优先级更高
+- `request.always` 会无条件附加到请求体，适合 `reasoning_split` 这类返回格式开关
 - `request.whenReasoningEnabled` 里的 `null` 会移除继承自 provider 的同名字段
 
 当前建议：
 
-- `minimax` 官网原厂兼容配置放在 provider 级
+- `minimax` 官网原厂兼容配置放在 provider 级；`reasoning_split` 这类返回格式开关优先放 `request.always`
 - `babelark-minimax-m2_7` 这类网关特例放在 model 级
