@@ -1,6 +1,6 @@
 ---
 name: "mock"
-description: "Use this skill when the user wants to use cli-mock to simulate stdout/stderr/exit behavior, test args/env/stdin/stream flows, or create and inspect mock XDG-style .config and .local trees with `mock xdg`."
+description: "Use this skill when the user wants to use cli-mock to simulate stdout/stderr/exit behavior, test args/env/stdin/stream flows, create and inspect mock XDG-style .config and .local trees with `mock xdg`, or drive mock business forms for leave, expense, and procurement."
 ---
 
 # mock
@@ -16,16 +16,20 @@ description: "Use this skill when the user wants to use cli-mock to simulate std
 - 运行环境读取：`env`、`stdin`
 - 延迟与流式输出：`sleep`、`stream`
 - XDG 环境树：`xdg apply`、`xdg inspect`
+- 业务表单：`create/get/update/delete` for `leave`、`expense`、`procurement`
+- 表单审批链路：compose form -> `mock create-* --payload '<json>'` -> Bash HITL -> HTML viewport approval
 
 ## Default Workflow
 
 1. 先判断需求属于哪条路线：
    - 基础命令模拟
    - XDG 环境树
+   - 业务表单
 2. 如果只是要模拟输出、退出码、stdin、env 或流式文本，走基础命令路线。
 3. 如果目标是准备或检查 `.config` / `.local` 下的可直接使用环境，走 XDG 路线。
-4. XDG 路线优先执行 `mock xdg inspect`，只有在需要创建或更新环境树时才执行 `mock xdg apply`。
-5. 只有确实需要文件内容时才在 `inspect` 里加 `--reveal`；默认先看 metadata。
+4. 如果目标是 mock 业务表单或验证 viewport 审批流，走业务表单路线。
+5. XDG 路线优先执行 `mock xdg inspect`，只有在需要创建或更新环境树时才执行 `mock xdg apply`。
+6. 只有确实需要文件内容时才在 `inspect` 里加 `--reveal`；默认先看 metadata。
 
 ## Basic Command Route
 
@@ -58,7 +62,27 @@ description: "Use this skill when the user wants to use cli-mock to simulate std
 
 如果问题是“manifest 怎么写”“什么时候用 apply / inspect”“为什么路径被拒绝”“什么时候该 reveal”，先读 `references/xdg-env.md`。
 
+## Business Form Route
+
+当前这 3 个 create 流已经接入 HTML approval viewport：
+
+- `mock create-leave --payload '<json>'` -> `leave_form`
+- `mock create-expense --payload '<json>'` -> `expense_form`
+- `mock create-procurement --payload '<json>'` -> `procurement_form`
+
+默认规则：
+
+- 业务命令以 `cli-mock` 的真实命令面为准，不要使用不存在的 `mock expense` 或 `mock procurement`
+- 优先使用 inline `--payload '<json>'`，这样宿主才能把 payload 预填到 approval viewport
+- `--payload-file` / `--payload-stdin` 仍然可用，但当前 approval 预填优化只覆盖 inline `--payload`
+- 当用户想“先填表单再确认”，先让表单生成 `mock create-* --payload '<json>'`
+- 当命令被 skill 的 `.bash-hooks` 拦截后，会进入 `_ask_user_approval_`，并渲染对应 HTML viewport 供用户核对 payload
+- approval viewport 里以核对为主；真正执行的是用户批准后的 `mock create-*` 命令
+
+如果问题是“3 个业务分别有哪些字段”“create/get/update/delete 命令怎么写”“哪些结果枚举可用”“什么时候该走 viewport 交互”，先读 `references/business-forms.md`。
+
 ## References
 
 - `references/commands.md`
 - `references/xdg-env.md`
+- `references/business-forms.md`

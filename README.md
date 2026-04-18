@@ -84,6 +84,7 @@ cp -R owner.example owner
 - [`teams/`](/Users/linlay/Project/zenmind/zenmind-env/teams)：团队配置。正式 yml 和 `*.example.yml` 可提交，`*.demo.yml` 忽略。
 - [`tools/`](/Users/linlay/Project/zenmind/zenmind-env/tools)：平台工具定义，作为正式配置提交。
 - [`chats/`](/Users/linlay/Project/zenmind/zenmind-env/chats)：会话历史与附件。只保留 `*.example.jsonl` 和 `*.example/` 样例，其余为运行态。
+- `archive/`：本地归档输出目录，由 [`archive.sh`](/Users/linlay/Project/zenmind/zenmind-env/archive.sh) 生成，不提交。
 - [`owner.example/`](/Users/linlay/Project/zenmind/zenmind-env/owner.example)：owner 初始化模板，提交并参与打包。
 - `owner/`：真实 owner 档案，只本地使用。
 - [`root/`](/Users/linlay/Project/zenmind/zenmind-env/root)：本地运行容器家目录。只保留 `.example` 模板，真实 `.config`、缓存和状态文件不提交。
@@ -141,3 +142,35 @@ cp -R owner.example owner
 - 某个配置没有入包时，先检查它是否被命名为 `*.demo`
 - 某个本地文件出现在 `git status` 中时，先确认它是否应当归类为 live 运行态
 - 如果需要初始化 owner，优先从 [`owner.example/BOOTSTRAP.md`](/Users/linlay/Project/zenmind/zenmind-env/owner.example/BOOTSTRAP.md) 开始
+
+### 归档聊天记录与记忆
+
+仓库根目录提供了 [`archive.sh`](/Users/linlay/Project/zenmind/zenmind-env/archive.sh)，用于一键归档本地运行态数据。
+
+默认直接运行：
+
+```bash
+./archive.sh
+```
+
+脚本会交互式选择：
+
+- 归档对象：`聊天记录` 或 `记忆`
+- 时间范围：`一个月以前`、`一周以前`、`一天以前`、`全部`
+
+也支持命令行参数：
+
+```bash
+./archive.sh chats month
+./archive.sh memory week --dry-run
+./archive.sh chats all --yes
+```
+
+归档行为说明：
+
+- 聊天记录会按 `chats/chats.db` 的 `UPDATED_AT_` 筛选
+- 命中的 `*.jsonl` 和同名附件目录会移动到 `archive/chats/<时间戳>/`
+- 对应的 chat 元数据会写入同目录下的 `chats.db`
+- 记忆会按 `memory/memory.db` 的 `TS_` 筛选
+- 命中的记忆记录会导出到 `archive/memory/<时间戳>/memory.db`
+- 归档完成后，源库中的对应记录会被删除

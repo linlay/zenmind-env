@@ -19,6 +19,9 @@
 !/chats/*.example/
 !/chats/*.example/**
 
+# Local archived runtime data stays local.
+/archive/
+
 # Local runtime state under root/ is ignored by default.
 # Keep only checked-in .example templates.
 /root/**

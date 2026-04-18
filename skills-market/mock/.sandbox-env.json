@@ -1,0 +1,7 @@
+{
+  "PATH": "/Users/linlay/Project/cligrep/cli-mock:/Users/linlay/.codex/tmp/arg0/codex-arg04vcS3i:/Users/linlay/.bun/bin:/opt/homebrew/opt/openjdk@21/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Users/linlay/.cargo/bin:/Applications/Codex.app/Contents/Resources",
+  "MOCK_CLI_ROOT": "/Users/linlay/Project/cligrep/cli-mock",
+  "MOCK_MCP_SERVER_ROOT": "/Users/linlay/Project/zenmind/mcp-server-mock",
+  "MOCK_SKILL_ROOT": "/Users/linlay/Project/zenmind/zenmind-env/skills-market/mock",
+  "MOCK_SERVER_BASE_URL": "http://localhost:11969"
+}

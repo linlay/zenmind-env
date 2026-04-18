@@ -1,0 +1,8 @@
+key: mock-create-expense
+commands:
+  - command: mock
+    subcommands:
+      - match: create-expense
+        level: 1
+        viewportType: html
+        viewportKey: expense_form

@@ -1,0 +1,50 @@
+key: dangerous-commands
+commands:
+  - command: rm
+    subcommands:
+      - match: "-rf /"
+        level: 1
+      - match: "-rf ~"
+        level: 1
+      - match: "-rf ."
+        level: 1
+  - command: chmod
+    subcommands:
+      - match: "777"
+        level: 1
+  - command: kill
+    subcommands:
+      - match: "-9"
+        level: 1
+  - command: dd
+    subcommands:
+      - match: "of=/dev"
+        level: 1
+  - command: mkfs
+    subcommands:
+      - match: "/dev"
+        level: 1
+  - command: shutdown
+    subcommands:
+      - match: "now"
+        level: 1
+  - command: reboot
+    subcommands:
+      - match: ""
+        level: 1
+  - command: systemctl
+    subcommands:
+      - match: "stop"
+        level: 1
+      - match: "disable"
+        level: 1
+  - command: iptables
+    subcommands:
+      - match: "-F"
+        level: 1
+  - command: curl
+    subcommands:
+      - match: "| bash"
+        level: 1
+      - match: "| sh"
+        level: 1
