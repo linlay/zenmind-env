@@ -10,7 +10,6 @@ toolConfig:
   tools:
     - _bash_
     - _datetime_
-    - _ask_user_approval_
 contextConfig:
   tags:
     - system

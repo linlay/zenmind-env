@@ -34,7 +34,7 @@
 - `modelConfig.modelKey`
 - `modelConfig.reasoning.enabled`
 - `modelConfig.reasoning.effort`
-- `toolConfig.backends`
+- `toolConfig.tools`
 - `skillConfig.skills` 或 `skills`
 - `mode`
 - `react.maxSteps`
