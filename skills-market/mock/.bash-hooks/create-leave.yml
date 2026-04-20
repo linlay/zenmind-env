@@ -4,5 +4,6 @@ commands:
     subcommands:
       - match: create-leave
         level: 1
+        title: "mock 请假申请"
         viewportType: html
         viewportKey: leave_form
