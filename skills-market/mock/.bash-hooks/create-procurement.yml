@@ -4,5 +4,6 @@ commands:
     subcommands:
       - match: create-procurement
         level: 1
+        title: "mock 采购申请"
         viewportType: html
         viewportKey: procurement_form
