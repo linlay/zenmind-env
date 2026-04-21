@@ -1,5 +1,7 @@
 # mock Business Forms
 
+> 构造 `--payload` 前，务必先执行 `mock create-<leave|expense|procurement> --help` 查看权威 schema；本文档只做旁注，以 CLI `--help` 为准。
+
 ## What This Covers
 
 `cli-mock` 目前稳定支持 3 类业务表单：
@@ -44,37 +46,41 @@ mock create-procurement --payload '<json>'
 ### Leave
 
 ```bash
-mock create-leave --payload '{"employee_id":"E1001","employee_name":"Lin","leave_type":"annual","start_date":"2026-04-20","end_date":"2026-04-22","days":3,"reason":"family_trip","handover_to":"E2001","urgent_contact":"13800138000"}'
+mock create-leave --payload '{"applicant_id":"E1001","department_id":"engineering","leave_type":"annual","start_date":"2026-04-20","end_date":"2026-04-22","days":3,"reason":"family_trip"}'
 mock get-leave --request-id LV-7B0A3D4F10
-mock update-leave --payload '{"request_id":"LV-7B0A3D4F10","employee_id":"E1001","employee_name":"Lin","leave_type":"annual","start_date":"2026-04-21","end_date":"2026-04-23","days":3,"reason":"family_trip","handover_to":"E2001","urgent_contact":"13800138000"}'
+mock update-leave --payload '{"request_id":"LV-7B0A3D4F10","applicant_id":"E1001","department_id":"engineering","leave_type":"annual","start_date":"2026-04-21","end_date":"2026-04-23","days":3,"reason":"family_trip"}'
 mock delete-leave --request-id LV-7B0A3D4F10
 ```
 
 关键字段：
 
-- `employee_id`
-- `employee_name`
+- `applicant_id`
+- `department_id`
 - `leave_type`
 - `start_date`
 - `end_date`
 - `days`
 - `reason`
-- `handover_to`
-- `urgent_contact`
+
+枚举：
+
+- `leave_type ∈ {annual, sick, personal}`
 
 ### Expense
 
 ```bash
-mock create-expense --payload '{"employee_id":"E1001","department":"engineering","expense_type":"travel","currency":"CNY","total_amount":1280.5,"items":[{"category":"transport","amount":800,"invoice_id":"INV-001","occurred_on":"2026-04-10","description":"flight"},{"category":"hotel","amount":480.5,"invoice_id":"INV-002","occurred_on":"2026-04-11","description":"hotel"}],"submitted_at":"2026-04-14T10:30:00+08:00"}'
+mock create-expense --payload '{"employee":{"id":"E1001","name":"张三"},"department":{"code":"engineering","name":"工程部"},"expense_type":"travel","currency":"CNY","total_amount":1280.5,"submitted_at":"2026-04-14T10:30:00+08:00","items":[{"category":"transport","amount":800,"invoice_id":"INV-001","occurred_on":"2026-04-10","description":"flight"},{"category":"hotel","amount":480.5,"invoice_id":"INV-002","occurred_on":"2026-04-11","description":"hotel"}]}'
 mock get-expense --request-id EX-14C0A7B992
-mock update-expense --request-id EX-14C0A7B992 --payload '{"employee_id":"E1001","department":"engineering","expense_type":"travel","currency":"CNY","total_amount":1280.5,"items":[{"category":"transport","amount":800,"invoice_id":"INV-001","occurred_on":"2026-04-10","description":"flight"},{"category":"hotel","amount":480.5,"invoice_id":"INV-002","occurred_on":"2026-04-11","description":"hotel"}],"submitted_at":"2026-04-14T10:30:00+08:00"}'
+mock update-expense --request-id EX-14C0A7B992 --payload '{"employee":{"id":"E1001","name":"张三"},"department":{"code":"engineering","name":"工程部"},"expense_type":"travel","currency":"CNY","total_amount":1280.5,"submitted_at":"2026-04-14T10:30:00+08:00","items":[{"category":"transport","amount":800,"invoice_id":"INV-001","occurred_on":"2026-04-10","description":"flight"},{"category":"hotel","amount":480.5,"invoice_id":"INV-002","occurred_on":"2026-04-11","description":"hotel"}]}'
 mock delete-expense --request-id EX-14C0A7B992
 ```
 
 关键字段：
 
-- `employee_id`
-- `department`
+- `employee.id`
+- `employee.name`
+- `department.code`
+- `department.name`
 - `expense_type`
 - `currency`
 - `total_amount`
@@ -84,6 +90,12 @@ mock delete-expense --request-id EX-14C0A7B992
 - `items[].occurred_on`
 - `items[].description`
 - `submitted_at`
+
+枚举：
+
+- `currency ∈ {CNY, USD}`
+- `expense_type ∈ {travel, meal, equipment, other}`
+- `items[].category ∈ {transport, hotel, meal, other}`
 
 ### Procurement
 
@@ -107,6 +119,12 @@ mock delete-procurement --request-id PR-BA08D42C31
 - `items[].vendor`
 - `approvers[]`
 - `requested_at`
+
+字典/字段说明：
+
+- `department` 使用部门代码，例如 `engineering`
+- `approvers[]` 使用员工/审批人 ID，例如 `MGR100`
+- `items[]` 必须包含 `name / quantity / unit_price / vendor`
 
 ## Result Enums
 
