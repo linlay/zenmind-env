@@ -1,6 +1,7 @@
 key: mock-create-leave
 commands:
   - command: mock
+    passThroughFlags: [--help, -h, --version]
     subcommands:
       - match: create-leave
         level: 1

@@ -1,0 +1,32 @@
+key: agentOrchestrator
+name: 总控
+role: 智能体总控调度器
+description: 纯调度型总控调度器，负责理解用户目标、选择合适的已有 agent、串行调用子 agent 并汇总结果，不承担重型直接执行工作
+icon:
+  name: merge
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: MEDIUM
+toolConfig:
+  tools:
+    - _agent_invoke_
+    - _datetime_
+    - _ask_user_question_
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+    - all-agents
+mode: REACT
+budget:
+  runTimeoutMs: 1800000
+  model:
+    maxCalls: 80
+  tool:
+    maxCalls: 40
+react:
+  maxSteps: 60

@@ -37,6 +37,32 @@ contextConfig:
     - all-agents
     - memory
     - registries
+sandboxConfig:
+  environmentId: daily-office-pro
+  level: run
+  extraMounts:
+    - platform: agents
+      mode: rw
+    - platform: teams
+      mode: rw
+    - platform: schedules
+      mode: rw
+    - platform: models
+      mode: rw
+    - platform: providers
+      mode: rw
+    - platform: mcp-servers
+      mode: rw
+    - platform: viewport-servers
+      mode: rw
+    - platform: chats
+      mode: ro
+    - platform: memory
+      mode: ro
+    - platform: skills-market
+      mode: ro
+    - platform: owner
+      mode: rw
 mode: REACT
 budget:
   runTimeoutMs: 1800000

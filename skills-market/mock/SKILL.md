@@ -72,6 +72,8 @@ description: "Use this skill when the user wants to use cli-mock to simulate std
 
 默认规则：
 
+- 构造 `--payload` 前先跑 `mock create-<leave|expense|procurement> --help`，以 CLI `--help` 里的 Example 为权威 schema
+- payload 字段必须使用 `snake_case` 与 `_id` 风格；禁止 camelCase、缩写 key、或自创字段名
 - 业务命令以 `cli-mock` 的真实命令面为准，不要使用不存在的 `mock expense` 或 `mock procurement`
 - 优先使用 inline `--payload '<json>'`，这样宿主才能把 payload 预填到 approval viewport
 - `--payload-file` / `--payload-stdin` 仍然可用，但当前 approval 预填优化只覆盖 inline `--payload`
