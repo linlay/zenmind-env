@@ -33,5 +33,9 @@ react:
   maxSteps: 20
 wonders:
   - 问我 3 个关于请假申请的问题，分别包含单选、多选和填空，等我回答后帮我汇总结果
-  - 并行执行 3 次 bash，分别运行 `chmod 777 ~/a.sh`、`chmod 777 ~/b.sh` 和 `chmod 777 ~/c.sh`，我要验证是否会被拦截
+  - |
+    并行执行 3 次 bash，分别运行
+    `chmod 777 ~/a.sh`、
+    `chmod 777 ~/b.sh` 和 `chmod 777 ~/c.sh`，
+    我要验证是否会被拦截
   - 用随机信息填写一张请假申请单（mock create-leave），我要验证提交前是否会触发拦截
