@@ -29,7 +29,7 @@
 
 处理规则：
 
-- 先列 `/schedules`
+- 先列出计划任务目录
 - 有具体目标时，先读头部再读全文
 - 默认回答重点放在 `enabled`、`cron`、`remainingRuns`、`agentKey`、`query.message`
 

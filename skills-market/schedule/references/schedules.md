@@ -1,6 +1,6 @@
 # Schedules
 
-schedule 文件位于 `/schedules/<schedule-id>.yml`。
+schedule 文件位于计划任务目录中的 `<schedule-id>.yml`。
 
 ## 头部与字段顺序
 
@@ -77,7 +77,7 @@ query:
 
 ## 推荐检查顺序
 
-1. `ls /schedules`
-2. 只读查看概要时，先 `sed -n '1,20p' /schedules/<schedule-id>.yml`
+1. 先列出计划任务目录
+2. 只读查看概要时，先定位目标 schedule 文件并查看头部
 3. 需要确认字段细节或准备修改时，再读全文
 4. 写后回读并核对 `cron`、`remainingRuns`、`agentKey`、`query.message`

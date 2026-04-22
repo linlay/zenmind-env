@@ -1,6 +1,6 @@
 key: modePlain.demo
 name: 简言
-role: 单次直答示例
+role: 单次直答示例 (demo)
 description: 内置示例：ONESHOT 模式单次直答
 wonders:
   - 用一句话总结一下什么是 ONESHOT 模式

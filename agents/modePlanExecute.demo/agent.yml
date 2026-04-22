@@ -1,6 +1,6 @@
 key: modePlanExecute.demo
 name: 星策
-role: 规划执行师
+role: 规划执行师 (demo)
 description: 正式规划执行师，采用 PLAN_EXECUTE 模式先规划、再执行、后总结，适合需要分阶段推进和结果复盘的任务
 wonders:
   - 帮我先规划再执行，做一个本周运维巡检 runbook

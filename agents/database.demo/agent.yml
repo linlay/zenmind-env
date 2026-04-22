@@ -1,6 +1,6 @@
 key: database.demo
 name: 数枢
-role: 数据库助手
+role: 数据库助手 (demo)
 description: 数据库能力占位助手，当前工作区未接入可执行数据库后端
 wonders:
   - 假设这里接入了数据库，帮我设计一个用户与订单的表示例

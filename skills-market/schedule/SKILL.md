@@ -1,13 +1,13 @@
 ---
 name: "schedule"
-description: "Use this skill for reminder and scheduling requests: create one-time or recurring schedules from natural language, inspect existing schedules, update or delete schedule YAML files under /schedules, and explain cron-backed scheduling behavior without routing through platform_admin."
+description: "Use this skill for reminder and scheduling requests: create one-time or recurring schedules from natural language, inspect existing schedules, update or delete schedule YAML files in the schedule configuration directory, and explain cron-backed scheduling behavior without routing through platform_admin."
 ---
 
 # schedule
 
 先读这个 skill，再处理提醒、定时任务和 schedule。
 
-这个 skill 是 `/schedules/*.yml` 的唯一入口。不要再把 schedule 相关请求路由给 `platform_admin`。
+这个 skill 是计划任务目录中 schedule YAML 的唯一入口。不要再把 schedule 相关请求路由给 `platform_admin`。
 
 ## 适用范围
 
@@ -28,6 +28,7 @@ description: "Use this skill for reminder and scheduling requests: create one-ti
 - 重复提醒默认不写 `remainingRuns`
 - 未明确 agent 时默认 `agentKey: zenmi`
 - 未明确时区时默认 `environment.zoneId: Asia/Shanghai`
+- 不要自行假设目录短路径；需要具体路径时，以运行时上下文给出的计划任务目录为准
 - `query.message` 直接写最终提醒文案，不要写成模糊的占位语
 
 ## 默认工作流
@@ -35,7 +36,7 @@ description: "Use this skill for reminder and scheduling requests: create one-ti
 1. 先读 `references/intent-routing.md`，确定请求属于哪一类
 2. 涉及 schedule 字段或 YAML 契约时，读 `references/schedules.md`
 3. 涉及自然语言转 cron 或文件命名时，读 `references/recipes.md`
-4. 查看已有任务时，先 `ls /schedules`，再定点读取目标文件
+4. 查看已有任务时，先列出计划任务目录，再定点读取目标文件
 5. 修改或删除前，先确认目标 schedule 已被正确定位
 6. 写入后必须回读结果，核对 `cron`、`remainingRuns`、`agentKey`、`query.message`
 

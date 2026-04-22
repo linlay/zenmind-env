@@ -1,6 +1,6 @@
 key: askUser.demo
 name: 问川
-role: 提问与确认演示助手
+role: 提问与确认演示助手 (demo)
 description: 内置示例：REACT 模式下演示提问式确认、Bash HITL 审批与 mock skill form 审批链路
 icon:
   name: echo

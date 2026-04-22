@@ -1,6 +1,6 @@
 key: cliHostAgent.demo
 name: 令宿
-role: 宿主机命令助手
+role: 宿主机命令助手 (demo)
 description: 在宿主机上通过 _bash_ 执行白名单命令的助手；不进入 sandbox，不走 toolbox，仅用于系统诊断、文件浏览和开发辅助
 wonders:
   - 帮我在宿主机上看一下当前目录和文件结构

@@ -1,6 +1,6 @@
 key: action.demo
 name: 小焰
-role: UI动作示例
+role: UI动作示例 (demo)
 description: 内置示例：UI 动作智能体（主题/烟花/模态框）
 wonders:
   - 把主题切到一个更醒目的风格，再放一轮烟花给我看看效果

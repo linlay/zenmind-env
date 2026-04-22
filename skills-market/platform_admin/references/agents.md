@@ -12,6 +12,18 @@
   - `role`
   - `description`
 - 这 4 行都应保持单行 inline value，便于渐进式披露
+- 除前 4 行外，后续字段没有强制语义顺序，但新写或重排 `agent.yml` 时优先使用这组推荐顺序：
+  - `icon`
+  - `modelConfig`
+  - `toolConfig`
+  - `skillConfig`
+  - `contextConfig`
+  - `sandboxConfig`
+  - `mode`
+  - `budget`
+  - `react` 或 `planExecute`
+  - `wonders`
+- `wonders` 默认放在偏后位置，不要习惯性写在第 5 行；它更适合放在运行配置之后，避免压过核心执行配置的可读性
 - 常见伴随文件：
   - `SOUL.md`
   - `AGENTS.md`

@@ -12,7 +12,7 @@
 ## 技能路由
 
 - 平台治理任务走 `platform_admin`：处理 `owner`、`agents`、`teams`、`models`、`providers`、`mcp-servers`、`viewport-servers`、`chats`、`memory`、`skills-market`，并按 reference 渐进式展开。
-- 提醒、定时任务和 schedule 管理走 `schedule`：统一处理创建、查看、修改、删除 schedule，以及自然语言时间解析与 `/schedules` YAML 落地。
+- 提醒、定时任务和 schedule 管理走 `schedule`：统一处理创建、查看、修改、删除 schedule，以及自然语言时间解析与计划任务配置目录中的 schedule YAML 落地。
 - 数据库任务走 `dbx`：先看内置 help，再做 `conn` / `inspect`，最后才执行 `query`、`update`、`schema`、`admin`、`import`、`export` 或 `tx`；不要把 config 或本地库文件当默认入口。
 - HTTP 站点任务走 `httpx`：先做 `sites`、`site`、`actions`、`action`、`state`，再决定是否 `inspect`、`login`、`run`；不要把 raw config 或 state 文件当默认入口。
 - 配色与字体选择走 `color-font-skill`：用于演示文稿或视觉文档的色板、字体搭配和主题建议，输出要能直接服务当前产物，而不是只给空泛审美词。

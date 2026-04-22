@@ -1,6 +1,6 @@
 key: modeReact.demo
 name: 灵月
-role: REACT示例
+role: REACT示例 (demo)
 description: 内置示例：REACT 模式按需多轮工具调用
 wonders:
   - 先查一下天气，再判断今天是否适合安排户外活动

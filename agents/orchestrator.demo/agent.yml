@@ -1,6 +1,6 @@
 key: orchestrator.demo
 name: 枢策
-role: 智能体总控演示调度器
+role: 智能体总控演示调度器 (demo)
 description: 调度演示总控，负责理解用户目标，判断是直接调度已有 agent，还是把某一阶段交给并行或串行伴生调度 agent 继续推进，并整合最终结果
 wonders:
   - 把这个需求拆成 3 个互不依赖的子任务，并并发调度合适的 agent 去完成，再汇总结论
