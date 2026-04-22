@@ -28,6 +28,11 @@ contextConfig:
 sandboxConfig:
   environmentId: toolbox
   level: run
+  env:
+    http_proxy: "http://127.0.0.1:8001"
+    HTTP_PROXY: "http://127.0.0.1:8001"
+    https_proxy: "http://127.0.0.1:8001"
+    HTTPS_PROXY: "http://127.0.0.1:8001"
 budget:
   runTimeoutMs: 1800000
   model:
