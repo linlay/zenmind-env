@@ -1,0 +1,15 @@
+key: modePlain.demo
+name: 简言
+role: 单次直答示例
+description: 内置示例：ONESHOT 模式单次直答
+wonders:
+  - 用一句话总结一下什么是 ONESHOT 模式
+  - 直接回答一个“适合晨会朗读的今日工作摘要”示例给我看
+icon:
+  name: aura
+modelConfig:
+  modelKey: bailian-qwen3_5-plus
+  reasoning:
+    enabled: false
+toolConfig: 
+mode: ONESHOT

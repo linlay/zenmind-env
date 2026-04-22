@@ -1,7 +1,10 @@
 key: codeAssistant
-name: 代码助手
+name: 星码
 role: CLI 代码助手
 description: 透传到 CLI 模式代码助手服务，支持代码生成和编辑
+wonders:
+  - 帮我读一下这个仓库的关键文件，然后直接修一个小 bug
+  - 给这个模块补一组测试，并顺手解释一下你为什么这样改
 icon:
   name: cipher
 mode: PROXY

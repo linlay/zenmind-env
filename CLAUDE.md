@@ -7,7 +7,7 @@
 项目边界如下：
 
 - 仓库事实源是目录契约、文件命名规则和 example 模板
-- `demo` 内容用于本地验证或演示，不作为正式资产
+- `demo` 内容用于本地验证或演示，可作为仓库内演示资产存在，但不作为正式发布资产
 - live 运行态目录只服务当前工作区，不作为共享配置事实源
 
 ## 2. 技术栈
@@ -15,13 +15,13 @@
 - 配置格式：YAML、Markdown、JSONL
 - 脚本与打包：shell，当前入口为 [`package.sh`](/Users/linlay/Project/zenmind/zenmind-env/package.sh)
 - 运行态目录：`root/`、`owner/`、`chats/`
-- 共享资产：`agents/`、`skills-market/`、`tools/`、`schedules/`、`teams/`
+- 共享资产：`agents/`、`skills-market/`、`tools/`、`teams/`，以及 `schedules/` 中的 README 与 example 模板
 
 ## 3. 架构设计
 
 工作区按“正式配置、模板配置、本地运行态”三层组织：
 
-- 正式配置层：`agents/`、`tools/`、`skills-market/`、正式 `schedules/` 和 `teams/`
+- 正式配置层：`agents/`、`tools/`、`skills-market/`、`teams/`
 - 模板层：`registries.example/`、`owner.example/`、`chats/` 内 example 样例、`root/` 中 `.example` 项
 - 运行态层：`registries/`、`owner/`、真实 `chats/`、`root/.config`、`root/.cache`、`root/.local`
 
@@ -29,12 +29,12 @@
 
 ## 4. 目录结构
 
-- [`agents/`](/Users/linlay/Project/zenmind/zenmind-env/agents)：智能体定义目录。非 `*.demo` 目录是正式配置。
+- [`agents/`](/Users/linlay/Project/zenmind/zenmind-env/agents)：智能体定义目录。正式目录和 `*.demo` 演示目录都可纳入版本管理。
 - `registries/`：当前工作区 live registry，本地运行态，不纳入 Git。
 - [`registries.example/`](/Users/linlay/Project/zenmind/zenmind-env/registries.example)：registry 模板，作为提交与打包来源。
 - [`skills-market/`](/Users/linlay/Project/zenmind/zenmind-env/skills-market)：共享技能市场，正式 skill 可提交。
-- [`schedules/`](/Users/linlay/Project/zenmind/zenmind-env/schedules)：计划任务。正式 yml 和 example 可提交，demo 忽略。
-- [`teams/`](/Users/linlay/Project/zenmind/zenmind-env/teams)：团队配置。正式 yml 和 example 可提交，demo 忽略。
+- [`schedules/`](/Users/linlay/Project/zenmind/zenmind-env/schedules)：计划任务。仅 `README.md` 与 example 模板可提交，其余 schedule 为本地运行态。
+- [`teams/`](/Users/linlay/Project/zenmind/zenmind-env/teams)：团队配置。正式 yml、example 和 demo 都可提交。
 - [`tools/`](/Users/linlay/Project/zenmind/zenmind-env/tools)：平台工具定义，作为正式配置提交。
 - [`chats/`](/Users/linlay/Project/zenmind/zenmind-env/chats)：聊天记录与附件。仅 example 样例可提交。
 - `owner/`：真实 owner 档案，只本地使用。
@@ -49,7 +49,7 @@
 - `agents/<agent-id>/agent.yml`：智能体主定义，描述名称、角色、模型、技能、沙箱和模式
 - `registries.example/{models,providers,mcp-servers,viewport-servers}/*.yml`：平台模板配置
 - `registries/.../*.yml`：工作区当前生效的 live registry
-- `schedules/*.yml`、`teams/*.yml`、`tools/*.yml`：平台运行配置
+- `schedules/*.example.yml`、`teams/*.yml`、`tools/*.yml`：平台运行配置模板与正式配置
 - `chats/<chatId>.jsonl`：按行记录的会话事件流
 - `owner.example/BOOTSTRAP.md`：owner 初始化模板说明
 - `owner/OWNER.md`：真实 owner 主文档，仅本地维护
@@ -60,7 +60,7 @@
 
 - 文件名后缀决定配置语义，例如 `*.example`、`*.demo`
 - 打包入口只识别命名规则，不接收自定义筛选参数
-- Git 提交边界与打包边界保持一致：正式配置和模板可提交，运行态和 demo 不提交
+- Git 提交边界与打包边界不再完全一致：demo 可提交，但仍不进入打包产物；运行态仍不提交
 
 ## 7. 开发要点
 
@@ -85,5 +85,5 @@
 - `registries/` 是当前工作区 live 配置，不能替代 `registries.example/`
 - `owner/` 和真实 `chats/` 包含用户态信息，默认不应入库
 - `root/` 同时承载缓存、状态和本地配置，必须区分 `.example` 模板与真实运行态
-- `tools/` 作为平台配置提交，但不参与当前打包产物
+- `tools/` 作为平台配置提交，并参与当前打包产物
 - 空目录不会被 Git 跟踪；若某个 example 目录需要长期保留，应通过可提交文件显式承载

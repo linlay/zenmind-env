@@ -11,7 +11,7 @@
 工作区的核心约定是：
 
 - `example` 用于提交、初始化和打包
-- `demo` 用于本地演示，不纳入 Git，也不进入发布包
+- `demo` 用于演示或实验，可纳入 Git，但默认不进入发布包
 - live 运行态目录只在本地使用，不作为仓库事实源
 
 ## 2. 快速开始
@@ -71,17 +71,18 @@ cp -R owner.example owner
 ```
 
 输出目录为 [`dist/`](/Users/linlay/Project/zenmind/zenmind-env/dist)。该脚本不接受自定义筛选参数，只按工作区命名约定打包。
+打包时会逐目录应用固定规则，例如把 `registries.example/` 写成归档内的 `registries/`，并把 `*.example.yml`、`agent.example.yml`、`root/.config.example/` 这类模板名转换为正式文件名。
 
 ## 3. 配置说明
 
 ### 目录角色
 
-- [`agents/`](/Users/linlay/Project/zenmind/zenmind-env/agents)：智能体定义。正式 agent 可提交，`*.demo` 仅本地使用。
+- [`agents/`](/Users/linlay/Project/zenmind/zenmind-env/agents)：智能体定义。正式 agent 和 `*.demo` 演示目录都可提交。
 - [`registries.example/`](/Users/linlay/Project/zenmind/zenmind-env/registries.example)：registry 模板与打包来源，提交到 Git。
 - `registries/`：当前工作区 live registry，本地维护，不提交。
 - [`skills-market/`](/Users/linlay/Project/zenmind/zenmind-env/skills-market)：共享技能市场。正式 skill 提交，demo/临时内容本地化。
-- [`schedules/`](/Users/linlay/Project/zenmind/zenmind-env/schedules)：计划任务定义。正式 yml 和 `*.example.yml` 可提交，`*.demo.yml` 忽略。
-- [`teams/`](/Users/linlay/Project/zenmind/zenmind-env/teams)：团队配置。正式 yml 和 `*.example.yml` 可提交，`*.demo.yml` 忽略。
+- [`schedules/`](/Users/linlay/Project/zenmind/zenmind-env/schedules)：计划任务定义。只提交 `README.md` 和 `*.example.yml` 模板，其余 schedule 视为本地运行态。
+- [`teams/`](/Users/linlay/Project/zenmind/zenmind-env/teams)：团队配置。正式 yml、`*.example.yml` 和 `*.demo.yml` 都可提交。
 - [`tools/`](/Users/linlay/Project/zenmind/zenmind-env/tools)：平台工具定义，作为正式配置提交。
 - [`chats/`](/Users/linlay/Project/zenmind/zenmind-env/chats)：会话历史与附件。只保留 `*.example.jsonl` 和 `*.example/` 样例，其余为运行态。
 - `archive/`：本地归档输出目录，由 [`archive.sh`](/Users/linlay/Project/zenmind/zenmind-env/archive.sh) 生成，不提交。
@@ -111,9 +112,11 @@ cp -R owner.example owner
 - 打包时：
   - `registries.example/` 会写入归档中的 `registries/`
   - `owner.example/` 会写入归档中的 `owner/`
+  - `root/`、`teams/`、`schedules/` 中的 `.example` 模板名会被转换为正式文件名
   - `chats/` 只会带上 example 样例
-  - `tools/` 不进入发布包
+  - `tools/` 会作为正式配置进入发布包
 - `demo` 和真实用户态数据不会成为发布物的一部分
+- `schedules/` 只有 `README.md` 和 example 模板进入 Git，真实 schedule 文件不进入 Git
 
 ## 4. 部署
 

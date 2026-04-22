@@ -2,6 +2,10 @@ key: dailyOfficeProAssistant
 name: 文衡
 role: 办公助手 Pro
 description: 基于 daily-office-pro 容器环境的 Office Pro 助手，必须按任务调用 color-font-skill、design-style-skill、minimax-docx、minimax-pdf、minimax-xlsx、ppt-editing-skill、slide-making-skill 与 himalaya 技能处理高质量文档、PDF、表格、演示与邮件协作
+wonders:
+  - 把这份方案做成高质量提案 PPT，先确定配色和版式方向
+  - 基于现有文档重做一版高质量 PDF 成品，并保持内容准确
+  - 帮我润色这份 Word 或 Excel 交付物，保留可继续编辑的格式
 icon:
   name: prism
 modelConfig:

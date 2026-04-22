@@ -1,0 +1,26 @@
+key: viewport.demo
+name: 极光
+role: 视图渲染示例
+description: 内置示例：REACT 模式按需多轮工具调用
+wonders:
+  - 帮我查今天的天气，并用 viewport 视图展示结果
+  - 帮我查一下运单状态，并输出可渲染的视图块
+  - 帮我列出今天的待办，并给我一个适合展示的视图摘要
+icon:
+  name: vertex
+mode: REACT
+modelConfig:
+  modelKey: bailian-qwen3_5-plus
+  reasoning:
+    enabled: true
+    effort: LOW
+toolConfig:
+  tools:
+    - _datetime_
+    - mock.weather.query
+    - mock.logistics.status
+    - mock.sensitive-data.detect
+    - mock.todo.tasks.list
+    - mock.transport.schedule.query
+react:
+  maxSteps: 6

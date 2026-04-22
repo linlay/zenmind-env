@@ -1,0 +1,31 @@
+key: cliHostAgent.demo
+name: 令宿
+role: 宿主机命令助手
+description: 在宿主机上通过 _bash_ 执行白名单命令的助手；不进入 sandbox，不走 toolbox，仅用于系统诊断、文件浏览和开发辅助
+wonders:
+  - 帮我在宿主机上看一下当前目录和文件结构
+  - 帮我用宿主机白名单命令检查这个仓库的 git 状态
+  - 帮我读取一个本地配置文件，并说明关键信息
+icon:
+  name: node
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+toolConfig:
+  tools:
+    - _bash_
+    - _datetime_
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+budget:
+  runTimeoutMs: 600000
+  model:
+    maxCalls: 50
+  tool:
+    maxCalls: 30
+mode: REACT
+react:
+  maxSteps: 20

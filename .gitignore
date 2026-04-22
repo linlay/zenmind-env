@@ -30,17 +30,15 @@
 !/root/*.example/
 !/root/*.example/**
 
-# Demo-only assets stay local.
-/agents/*.demo/
+# Demo assets are versioned when needed.
 /agents/zenmi/agent.yml
 /agents/zenmi/AGENTS.md
 /agents/zenmi/SOUL.md
 /agents/*/skills/
+
+# Local schedules stay out of Git; keep only docs and example templates.
 /schedules/**
 !/schedules/
 !/schedules/README.md
 !/schedules/*.example.yml
 !/schedules/*.example.yaml
-/teams/*.demo.yml
-/teams/*.demo.yaml
-/skills-market/*.demo/

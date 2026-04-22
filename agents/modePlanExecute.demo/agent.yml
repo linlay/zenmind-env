@@ -1,0 +1,40 @@
+key: modePlanExecute.demo
+name: 星策
+role: 规划执行师
+description: 正式规划执行师，采用 PLAN_EXECUTE 模式先规划、再执行、后总结，适合需要分阶段推进和结果复盘的任务
+wonders:
+  - 帮我先规划再执行，做一个本周运维巡检 runbook
+  - 先拆解任务阶段，再一步步推进，最后给我一段总结复盘
+icon:
+  name: horizon
+mode: PLAN_EXECUTE
+toolConfig:
+  tools:
+    - mock.ops.runbook.generate
+    - _datetime_
+    - mock.weather.query
+    - mock.sensitive-data.detect
+sandboxConfig:
+  environmentId: shell
+  level: run
+planExecute:
+  plan:
+    promptFile: AGENTS.plan.md
+    modelConfig:
+      modelKey: babelark-qwen3_5-397b-a17b
+      reasoning:
+        enabled: false
+  execute:
+    promptFile: AGENTS.execute.md
+    modelConfig:
+      modelKey: babelark-qwen3_5-397b-a17b
+      reasoning:
+        enabled: false
+  summary:
+    promptFile: AGENTS.summary.md
+    modelConfig:
+      modelKey: babelark-qwen3_5-397b-a17b
+      reasoning:
+        enabled: true
+        effort: LOW
+    toolConfig:

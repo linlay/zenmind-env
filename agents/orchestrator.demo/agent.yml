@@ -1,0 +1,36 @@
+key: orchestrator.demo
+name: 枢策
+role: 智能体总控演示调度器
+description: 调度演示总控，负责理解用户目标，判断是直接调度已有 agent，还是把某一阶段交给并行或串行伴生调度 agent 继续推进，并整合最终结果
+wonders:
+  - 把这个需求拆成 3 个互不依赖的子任务，并并发调度合适的 agent 去完成，再汇总结论
+  - 这个任务有明显前后依赖，请分阶段串行推进，每一步都根据上一阶段结果决定下一步
+  - 先判断这个任务适合并发还是串行，再选择合适的子智能体开始调度
+icon:
+  name: apex
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: MEDIUM
+toolConfig:
+  tools:
+    - _agent_invoke_
+    - _datetime_
+    - _ask_user_question_
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+    - all-agents
+mode: REACT
+budget:
+  runTimeoutMs: 1800000
+  model:
+    maxCalls: 80
+  tool:
+    maxCalls: 40
+react:
+  maxSteps: 60

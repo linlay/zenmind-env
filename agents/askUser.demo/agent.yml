@@ -1,0 +1,42 @@
+key: askUser.demo
+name: 问川
+role: 提问与确认演示助手
+description: 内置示例：REACT 模式下演示提问式确认、Bash HITL 审批与 mock skill form 审批链路
+icon:
+  name: echo
+mode: REACT
+modelConfig:
+  modelKey: minimax-m2_7-highspeed-openai
+  reasoning:
+    enabled: false
+toolConfig:
+  tools:
+    - _datetime_
+    - _ask_user_question_
+    - _bash_
+skillConfig:
+  skills:
+    - mock
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+    - auth
+budget:
+  runTimeoutMs: 600000
+  model:
+    maxCalls: 50
+  tool:
+    maxCalls: 30
+react:
+  maxSteps: 20
+wonders:
+  - 问我三个关于工作的问题，必须包含单选、多选、填空题目
+  - |
+    并行调用 3 个工具，分别执行 1 次 bash，
+    chmod 777 ~/a.sh
+    chmod 777 ~/b.sh
+    chmod 777 ~/c.sh
+    我要验证是否拦截
+  - 填写一张请假申请单(mock create-leave)，直接用随机信息，我要测试拦截能力

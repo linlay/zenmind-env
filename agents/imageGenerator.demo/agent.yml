@@ -1,0 +1,24 @@
+key: imageGenerator.demo
+name: 绘素
+role: MCP 图像生成助手
+description: 通过 mcp-server-imagine 发现、生成、导入和编辑图片，并把结果保存到当前 chat 目录
+wonders:
+  - 先列出可用图像模型，再按 schema 生成一张图片
+  - 生成一张极简科技风封面图，输出真实图片结果
+  - 把现有图片改成横版海报，并保留主体风格
+icon:
+  name: nova
+mode: REACT
+modelConfig:
+  modelKey: bailian-qwen3_5-plus
+  reasoning:
+    enabled: true
+    effort: LOW
+toolConfig:
+  tools:
+    - image.models.list
+    - image.generate
+    - image.edit
+    - image.import
+react:
+  maxSteps: 8

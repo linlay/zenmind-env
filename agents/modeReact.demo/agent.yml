@@ -1,0 +1,53 @@
+key: modeReact.demo
+name: 灵月
+role: REACT示例
+description: 内置示例：REACT 模式按需多轮工具调用
+wonders:
+  - 先查一下天气，再判断今天是否适合安排户外活动
+  - 帮我做一次多步推理：先识别敏感信息，再给出安全版总结
+icon:
+  name: nexus
+mode: REACT
+modelConfig:
+  modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: LOW
+contextConfig:
+  tags:
+    - system
+    - context
+    - owner
+controls:
+  - key: answer_style
+    type: select
+    label: 输出风格
+    icon: ai-file-text-line
+    defaultValue: standard
+    options:
+      - value: concise
+        label: 简洁
+      - value: standard
+        label: 标准
+      - value: detailed
+        label: 详细
+  - key: step_budget
+    type: number
+    label: 推理步数
+    icon: ai-repeat-line
+    defaultValue: 6
+  - key: enable_voice_progress
+    type: switch
+    label: 语音播报进展
+    icon: ai-volume-up-line
+    defaultValue: true
+toolConfig:
+  tools:
+    - _datetime_
+    - mock.weather.query
+    - mock.sensitive-data.detect
+sandboxConfig:
+  environmentId: shell
+  level: run
+react:
+  maxSteps: 20
