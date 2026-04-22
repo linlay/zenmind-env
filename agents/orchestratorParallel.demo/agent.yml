@@ -2,10 +2,6 @@ key: orchestratorParallel.demo
 name: 枢策·并
 role: 并行子调度器 (demo)
 description: 总控伴生智能体，负责把同一阶段内彼此独立的 2 到 3 个子任务并发交给合适 agent，并汇总分支结果给上游总控或用户
-wonders:
-  - 把这 2 到 3 个互不依赖的子任务并发分派，再帮我汇总结果
-  - 这几个问题彼此独立，帮我并行找合适 agent 去做
-  - 我已经拆好了多个独立子任务，帮我统一发起并做结果收敛
 icon:
   name: quantum
 modelConfig:
@@ -34,3 +30,7 @@ budget:
     maxCalls: 30
 react:
   maxSteps: 40
+wonders:
+  - 把这 2 到 3 个互不依赖的子任务并发分派，再帮我汇总结果
+  - 这几个问题彼此独立，帮我并行找合适 agent 去做
+  - 我已经拆好了多个独立子任务，帮我统一发起并做结果收敛

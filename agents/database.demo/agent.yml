@@ -2,9 +2,6 @@ key: database.demo
 name: 数枢
 role: 数据库助手 (demo)
 description: 数据库能力占位助手，当前工作区未接入可执行数据库后端
-wonders:
-  - 假设这里接入了数据库，帮我设计一个用户与订单的表示例
-  - 没有真实数据库也没关系，先给我写一条查询最近 7 天订单的 SQL 示例
 icon:
   name: matrix
 mode: REACT
@@ -18,3 +15,6 @@ toolConfig:
     - _datetime_
 react:
   maxSteps: 20
+wonders:
+  - 假设这里接入了数据库，帮我设计一个用户与订单的表示例
+  - 没有真实数据库也没关系，先给我写一条查询最近 7 天订单的 SQL 示例

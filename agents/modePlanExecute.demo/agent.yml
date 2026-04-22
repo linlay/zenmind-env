@@ -2,9 +2,6 @@ key: modePlanExecute.demo
 name: 星策
 role: 规划执行师 (demo)
 description: 正式规划执行师，采用 PLAN_EXECUTE 模式先规划、再执行、后总结，适合需要分阶段推进和结果复盘的任务
-wonders:
-  - 帮我先规划再执行，做一个本周运维巡检 runbook
-  - 先拆解任务阶段，再一步步推进，最后给我一段总结复盘
 icon:
   name: horizon
 mode: PLAN_EXECUTE
@@ -38,3 +35,7 @@ planExecute:
         enabled: true
         effort: LOW
     toolConfig:
+wonders:
+  - 本周运维巡检 runbook 应该怎么分阶段规划，并落成一份可执行清单？
+  - 如果要在今天下班前完成一次服务发布，具体应该先做哪些准备、再执行哪些步骤、最后怎么复盘？
+  - 一个新同事入职第一周的 onboarding 计划，如何先拆解阶段任务、逐步推进，并输出最终总结？

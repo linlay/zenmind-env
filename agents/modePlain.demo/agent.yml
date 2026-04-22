@@ -2,9 +2,6 @@ key: modePlain.demo
 name: 简言
 role: 单次直答示例 (demo)
 description: 内置示例：ONESHOT 模式单次直答
-wonders:
-  - 用一句话总结一下什么是 ONESHOT 模式
-  - 直接回答一个“适合晨会朗读的今日工作摘要”示例给我看
 icon:
   name: aura
 modelConfig:
@@ -13,3 +10,6 @@ modelConfig:
     enabled: false
 toolConfig: 
 mode: ONESHOT
+wonders:
+  - 用一句话总结一下什么是 ONESHOT 模式
+  - 直接回答一个“适合晨会朗读的今日工作摘要”示例给我看

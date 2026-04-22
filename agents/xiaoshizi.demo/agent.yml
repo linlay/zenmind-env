@@ -2,9 +2,6 @@ key: xiaoshizi.demo
 name: 识微
 role: 图片与PDF识别助手 (demo)
 description: 基于 VL 模型的图片与 PDF 识别 Demo 助手，可识别上传图片内容、读取 PDF、提取文字并回答“图里是什么/写了什么”
-wonders:
-  - 帮我看看这张图里主要有什么内容，并提取关键文字
-  - 读取这份 PDF 的主要信息，帮我整理成一段简短摘要
 icon:
   name: oracle
 modelConfig:
@@ -33,3 +30,6 @@ budget:
 mode: REACT
 react:
   maxSteps: 24
+wonders:
+  - 帮我看看这张图里主要有什么内容，并提取关键文字
+  - 读取这份 PDF 的主要信息，帮我整理成一段简短摘要

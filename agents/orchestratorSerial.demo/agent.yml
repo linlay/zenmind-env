@@ -2,10 +2,6 @@ key: orchestratorSerial.demo
 name: 枢策·串
 role: 串行子调度器 (demo)
 description: 总控伴生智能体，负责按依赖链逐步推进多阶段任务，每一步基于上一阶段的真实结果选择下一位合适 agent，并汇总阶段结论
-wonders:
-  - 这个任务前后依赖很强，帮我按阶段串行调度
-  - 先做第一步，拿到结果后再决定第二步交给哪个 agent
-  - 帮我一步一步推进这个任务，不要并发乱开分支
 icon:
   name: yield
 modelConfig:
@@ -34,3 +30,7 @@ budget:
     maxCalls: 30
 react:
   maxSteps: 45
+wonders:
+  - 这个任务前后依赖很强，帮我按阶段串行调度
+  - 先做第一步，拿到结果后再决定第二步交给哪个 agent
+  - 帮我一步一步推进这个任务，不要并发乱开分支

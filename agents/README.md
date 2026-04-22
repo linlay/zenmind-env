@@ -33,7 +33,6 @@ agents/<agent-id>/
 
 - 前 4 行固定为 `key`、`name`、`role`、`description`，并保持单行 inline value。
 - 之后推荐依次写 `icon`、`modelConfig`、`toolConfig`、`skillConfig`、`contextConfig`、`sandboxConfig`、`mode`、`budget`、`react` 或 `planExecute`，最后再写 `wonders`。
-- `wonders` 默认放在偏后位置，不建议作为紧跟描述后的第一个扩展字段。
 
 如果只是本地演示或试验，请使用 `*.demo` 目录名，例如 `myAgent.demo/`，不要和正式 agent 混用。
 

@@ -23,7 +23,6 @@
   - `budget`
   - `react` 或 `planExecute`
   - `wonders`
-- `wonders` 默认放在偏后位置，不要习惯性写在第 5 行；它更适合放在运行配置之后，避免压过核心执行配置的可读性
 - 常见伴随文件：
   - `SOUL.md`
   - `AGENTS.md`

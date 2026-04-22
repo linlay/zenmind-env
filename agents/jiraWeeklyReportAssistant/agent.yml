@@ -2,9 +2,6 @@ key: jiraWeeklyReportAssistant
 name: 周衡
 role: Jira 周报助手
 description: 基于 daily-office 容器环境的 Jira 周报助手，使用 jira-weekly-report-generator、httpx 与 docx 技能生成项目周报，默认输出 Markdown，并在用户要求时导出 DOCX
-wonders:
-  - 帮我按本周 Jira 进展生成一版周报，先输出 Markdown 草稿
-  - 把这个项目的 Jira 周报整理成更正式的 DOCX 版本，并突出风险与下周计划
 icon:
   name: pulse
 modelConfig:
@@ -45,3 +42,6 @@ promptFile:
   - AGENTS.40-output-and-validation.md
 react:
   maxSteps: 30
+wonders:
+  - 帮我按本周 Jira 进展生成一版周报，先输出 Markdown 草稿
+  - 把这个项目的 Jira 周报整理成更正式的 DOCX 版本，并突出风险与下周计划
