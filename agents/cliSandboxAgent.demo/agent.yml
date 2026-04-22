@@ -43,6 +43,6 @@ mode: REACT
 react:
   maxSteps: 30
 wonders:
-  - 帮我在 toolbox 沙箱里验证 dbx 是否真的可用，并给出证据
-  - 帮我检查 httpx 的站点和 action 能不能在当前环境真实跑通
-  - 帮我用 mock 演示 stdout、stderr 和退出码分别是什么
+  - 帮我在 toolbox 沙箱里执行一次 dbx 连通性检查，并给我能证明成功或失败的输出
+  - 帮我在当前环境里跑通一次 httpx 站点检查，并告诉我返回结果
+  - 帮我运行一个 mock 命令，分别展示 stdout、stderr 和退出码是什么

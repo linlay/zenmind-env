@@ -43,5 +43,5 @@ promptFile:
 react:
   maxSteps: 30
 wonders:
-  - 帮我按本周 Jira 进展生成一版周报，先输出 Markdown 草稿
-  - 把这个项目的 Jira 周报整理成更正式的 DOCX 版本，并突出风险与下周计划
+  - 随机模拟一组本周 Jira 进展数据，并生成一版周报 Markdown 草稿
+  - 随机模拟一个项目的 Jira 周报内容，并整理成正式的 DOCX 文档，突出风险和下周计划

@@ -11,5 +11,5 @@ modelConfig:
 toolConfig: 
 mode: ONESHOT
 wonders:
-  - 用一句话总结一下什么是 ONESHOT 模式
-  - 直接回答一个“适合晨会朗读的今日工作摘要”示例给我看
+  - 帮我写一句可以放进产品文档里的 ONESHOT 模式说明
+  - 直接给我写一段适合晨会朗读的今日工作摘要
