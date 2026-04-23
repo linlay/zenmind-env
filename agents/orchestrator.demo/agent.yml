@@ -19,7 +19,6 @@ contextConfig:
     - system
     - context
     - owner
-    - auth
     - all-agents
 mode: REACT
 budget:

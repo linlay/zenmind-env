@@ -22,7 +22,6 @@ contextConfig:
     - system
     - context
     - owner
-    - auth
 budget:
   runTimeoutMs: 600000
   model:

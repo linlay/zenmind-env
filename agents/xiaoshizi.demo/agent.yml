@@ -20,7 +20,6 @@ contextConfig:
     - system
     - context
     - owner
-    - auth
     - sandbox
 sandboxConfig:
   environmentId: daily-office

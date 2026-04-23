@@ -17,13 +17,13 @@ skillConfig:
   skills:
     - dbx
     - httpx
+    - imagine
     - mock
 contextConfig:
   tags:
     - system
     - context
     - owner
-    - auth
 budget:
   runTimeoutMs: 1800000
   model:

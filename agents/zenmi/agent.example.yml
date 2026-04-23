@@ -20,7 +20,6 @@ contextConfig:
     - context
     - owner
     - bootstrap
-    - auth
     - sandbox
 sandboxConfig:
   environmentId: toolbox

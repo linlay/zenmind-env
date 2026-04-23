@@ -32,7 +32,6 @@ contextConfig:
     - system
     - context
     - owner
-    - auth
     - sandbox
     - all-agents
     - memory
