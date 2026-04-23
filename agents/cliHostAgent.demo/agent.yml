@@ -1,15 +1,23 @@
 key: cliHostAgent.demo
 name: 令宿
-role: 宿主机命令助手 (demo)
-description: 在宿主机上通过 _bash_ 执行白名单命令的助手；不进入 sandbox，不走 toolbox，仅用于系统诊断、文件浏览和开发辅助
+role: CLI 宿主机验证助手 (demo)
+description: 基于宿主机环境的 CLI 验证助手，通过统一的 _bash_ 工具在宿主机执行，专门用于验证 dbx、httpx、mock 等命令在非沙箱环境中的真实可用性、输入输出与失败行为
 icon:
   name: node
 modelConfig:
   modelKey: babelark-qwen3_5-397b-a17b
+  reasoning:
+    enabled: true
+    effort: MEDIUM
 toolConfig:
   tools:
     - _bash_
     - _datetime_
+skillConfig:
+  skills:
+    - dbx
+    - httpx
+    - mock
 contextConfig:
   tags:
     - system
@@ -17,15 +25,15 @@ contextConfig:
     - owner
     - auth
 budget:
-  runTimeoutMs: 600000
+  runTimeoutMs: 1800000
   model:
-    maxCalls: 50
+    maxCalls: 100
   tool:
-    maxCalls: 30
+    maxCalls: 60
 mode: REACT
 react:
-  maxSteps: 20
+  maxSteps: 30
 wonders:
-  - 帮我在宿主机上列出当前目录的文件结构，并指出最关键的 5 个文件
-  - 帮我用宿主机白名单命令检查这个仓库的 git 状态，并告诉我有哪些改动
-  - 帮我读取本地的 `.gitignore` 文件，并用几句话说明里面的关键信息
+  - 帮我在宿主机里执行一次 dbx 连通性检查，并给我能证明成功或失败的输出
+  - 帮我在当前宿主机环境里跑通一次 httpx 站点检查，并告诉我返回结果
+  - 帮我运行一个 mock 命令，分别展示 stdout、stderr 和退出码是什么

@@ -36,7 +36,7 @@ description: "Use this skill when inspecting or changing ZenMind workspace gover
 - 用户问“有哪些 agent”“这个 agent 是干什么的”“它的 mode / tools / sandbox 是什么”：先读 `references/agents.md`
 - 用户问“有哪些计划任务”“这个 schedule 的 cron / enabled 是什么”：先读 `references/schedules.md`
 - 用户说“帮我每分钟/每天 X 点提醒我…”“设一个定时任务”“定期推送…”：先读 `references/schedules.md`，按其中“推送到当前会话”的最小模板建文件，而不是回复“我做不到主动发消息”
-- 用户问“platform_admin 这个 skill 管哪些组件”：先读 `/skills-market/platform_admin/SKILL.md`，再按需读 `references/agents.md`、`references/schedules.md`、`references/teams.md` 等相关 reference
+- 用户问“platform-admin 这个 skill 管哪些组件”：先读 `/skills-market/platform-admin/SKILL.md`，再按需读 `references/agents.md`、`references/schedules.md`、`references/teams.md` 等相关 reference
 
 ## Global Rules
 

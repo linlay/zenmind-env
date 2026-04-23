@@ -1,0 +1,206 @@
+key: dangerous-commands
+commands:
+  - command: rm
+    subcommands:
+      - match: ""
+        level: 1
+  - command: rmdir
+    subcommands:
+      - match: ""
+        level: 1
+  - command: find
+    subcommands:
+      - match: "-delete"
+        level: 1
+  - command: chmod
+    subcommands:
+      - match: "777"
+        level: 1
+      - match: "-R 777"
+        level: 1
+  - command: chown
+    subcommands:
+      - match: "-R"
+        level: 1
+  - command: chgrp
+    subcommands:
+      - match: "-R"
+        level: 1
+  - command: kill
+    subcommands:
+      - match: "-9"
+        level: 1
+  - command: pkill
+    subcommands:
+      - match: "-9"
+        level: 1
+  - command: killall
+    subcommands:
+      - match: "-9"
+        level: 1
+  - command: dd
+    subcommands:
+      - match: "of="
+        level: 1
+  - command: truncate
+    subcommands:
+      - match: "-s 0"
+        level: 1
+  - command: shred
+    subcommands:
+      - match: ""
+        level: 1
+  - command: wipefs
+    subcommands:
+      - match: ""
+        level: 1
+  - command: mkfs
+    subcommands:
+      - match: ""
+        level: 1
+  - command: fdisk
+    subcommands:
+      - match: ""
+        level: 1
+  - command: sfdisk
+    subcommands:
+      - match: ""
+        level: 1
+  - command: parted
+    subcommands:
+      - match: ""
+        level: 1
+  - command: pvremove
+    subcommands:
+      - match: ""
+        level: 1
+  - command: vgremove
+    subcommands:
+      - match: ""
+        level: 1
+  - command: lvremove
+    subcommands:
+      - match: ""
+        level: 1
+  - command: zpool
+    subcommands:
+      - match: "destroy"
+        level: 1
+  - command: shutdown
+    subcommands:
+      - match: "now"
+        level: 1
+  - command: reboot
+    subcommands:
+      - match: ""
+        level: 1
+  - command: halt
+    subcommands:
+      - match: ""
+        level: 1
+  - command: poweroff
+    subcommands:
+      - match: ""
+        level: 1
+  - command: systemctl
+    subcommands:
+      - match: "stop"
+        level: 1
+      - match: "disable"
+        level: 1
+      - match: "mask"
+        level: 1
+  - command: service
+    subcommands:
+      - match: "stop"
+        level: 1
+  - command: iptables
+    subcommands:
+      - match: "-F"
+        level: 1
+      - match: "-P"
+        level: 1
+  - command: nft
+    subcommands:
+      - match: "flush"
+        level: 1
+  - command: curl
+    subcommands:
+      - match: "| bash"
+        level: 1
+      - match: "| sh"
+        level: 1
+      - match: "| zsh"
+        level: 1
+  - command: wget
+    subcommands:
+      - match: "| bash"
+        level: 1
+      - match: "| sh"
+        level: 1
+      - match: "| zsh"
+        level: 1
+  - command: docker
+    subcommands:
+      - match: "rmi"
+        level: 1
+      - match: "rm"
+        level: 1
+      - match: "image rm"
+        level: 1
+      - match: "container rm"
+        level: 1
+      - match: "volume rm"
+        level: 1
+      - match: "network rm"
+        level: 1
+      - match: "system prune"
+        level: 1
+      - match: "container prune"
+        level: 1
+      - match: "image prune"
+        level: 1
+      - match: "volume prune"
+        level: 1
+      - match: "network prune"
+        level: 1
+      - match: "builder prune"
+        level: 1
+      - match: "compose down"
+        level: 1
+      - match: "compose rm"
+        level: 1
+  - command: git
+    subcommands:
+      - match: "clean"
+        level: 1
+      - match: "reset --hard"
+        level: 1
+      - match: "checkout --"
+        level: 1
+      - match: "restore --source"
+        level: 1
+      - match: "branch -D"
+        level: 1
+  - command: kubectl
+    subcommands:
+      - match: "delete"
+        level: 1
+      - match: "drain"
+        level: 1
+  - command: helm
+    subcommands:
+      - match: "uninstall"
+        level: 1
+  - command: userdel
+    subcommands:
+      - match: ""
+        level: 1
+  - command: deluser
+    subcommands:
+      - match: ""
+        level: 1
+  - command: groupdel
+    subcommands:
+      - match: ""
+        level: 1

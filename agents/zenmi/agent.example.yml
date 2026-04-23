@@ -13,7 +13,7 @@ toolConfig:
   tools: []
 skillConfig:
   skills:
-    - platform_admin
+    - platform-admin
 contextConfig:
   tags:
     - system

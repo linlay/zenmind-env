@@ -1,13 +1,13 @@
 ---
 name: "schedule"
-description: "Use this skill for reminder and scheduling requests: create one-time or recurring schedules from natural language, inspect existing schedules, update or delete schedule YAML files in the schedule configuration directory, and explain cron-backed scheduling behavior without routing through platform_admin."
+description: "Use this skill for reminder and scheduling requests: create one-time or recurring schedules from natural language, inspect existing schedules, update or delete schedule YAML files in the schedule configuration directory, and explain cron-backed scheduling behavior without routing through platform-admin."
 ---
 
 # schedule
 
 先读这个 skill，再处理提醒、定时任务和 schedule。
 
-这个 skill 是计划任务目录中 schedule YAML 的唯一入口。不要再把 schedule 相关请求路由给 `platform_admin`。
+这个 skill 是计划任务目录中 schedule YAML 的唯一入口。不要再把 schedule 相关请求路由给 `platform-admin`。
 
 ## 适用范围
 
