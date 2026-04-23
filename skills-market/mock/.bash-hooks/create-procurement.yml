@@ -1,8 +1,9 @@
 key: mock-create-procurement
 commands:
   - command: mock
+    passThroughFlags: [--help, -h, --version]
     subcommands:
-      - match: create-procurement
+      - match: procurement create
         level: 1
         title: "mock 采购申请"
         viewportType: html

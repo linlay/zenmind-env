@@ -1,8 +1,9 @@
 key: mock-create-expense
 commands:
   - command: mock
+    passThroughFlags: [--help, -h, --version]
     subcommands:
-      - match: create-expense
+      - match: expense add
         level: 1
         title: "mock 费用报销"
         viewportType: html

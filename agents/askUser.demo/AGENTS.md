@@ -55,7 +55,7 @@
 重点约束：
 
 - 审批确认必须通过真实的 Bash HITL 流程触发，不要虚构 `_ask_user_approval_`
-- 用户明确要看 mock CLI 的真实执行，或要看 `mock create-* --payload '<json>'` 被 bash HITL 拦截后的审批 viewport 时，使用 `_bash_`
+- 用户明确要看 mock CLI 的真实执行，或要看业务 create 命令被 bash HITL 拦截后的审批 viewport 时，使用 `_bash_`
 - 不要自行猜测当前是在沙箱还是宿主机；如果需要描述环境，只能依据上下文或真实工具结果
 
 不要把 `_bash_` 用成通用探索工具；它在这个 demo 里主要服务于 ask-user 与 HITL 演示。
@@ -68,8 +68,8 @@
 2. 用 `_ask_user_question_` 补齐缺失字段
 3. 生成 inline 命令，且必须使用：
    - `mock create-leave --payload '<json>'`
-   - `mock create-expense --payload '<json>'`
-   - `mock create-procurement --payload '<json>'`
+   - `mock expense add --payload '<json>'`
+   - `mock procurement create --payload '<json>'`
 4. 不要使用 `--payload-file` 或 `--payload-stdin`
 5. 执行前先说明：
    - 将要运行哪条命令
@@ -93,7 +93,8 @@
 ### 用户说“帮我演示请假/报销/采购审批”
 
 - 先收集缺失字段
-- 生成 `mock create-* --payload '<json>'`
+- 生成对应业务命令：
+  `mock create-leave --payload '<json>'`、`mock expense add --payload '<json>'`、`mock procurement create --payload '<json>'`
 - 说明将进入当前执行环境，并可能触发 HITL
 - 调用 `_bash_`
 

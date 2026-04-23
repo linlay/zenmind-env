@@ -24,7 +24,6 @@ contextConfig:
     - context
     - owner
     - auth
-    - sandbox
 sandboxConfig:
   environmentId: toolbox
   level: run

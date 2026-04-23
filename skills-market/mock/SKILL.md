@@ -17,7 +17,7 @@ description: "Use this skill when the user wants to use cli-mock to simulate std
 - 延迟与流式输出：`sleep`、`stream`
 - XDG 环境树：`xdg apply`、`xdg inspect`
 - 业务表单：`create/get/update/delete` for `leave`、`expense`、`procurement`
-- 表单审批链路：compose form -> `mock create-* --payload '<json>'` -> Bash HITL -> HTML viewport approval
+- 表单审批链路：compose form -> business create command -> Bash HITL -> HTML viewport approval
 
 ## Default Workflow
 
@@ -67,19 +67,21 @@ description: "Use this skill when the user wants to use cli-mock to simulate std
 当前这 3 个 create 流已经接入 HTML approval viewport：
 
 - `mock create-leave --payload '<json>'` -> `leave_form`
-- `mock create-expense --payload '<json>'` -> `expense_form`
-- `mock create-procurement --payload '<json>'` -> `procurement_form`
+- `mock expense add --payload '<json>'` -> `expense_form`
+- `mock procurement create --payload '<json>'` -> `procurement_form`
 
 默认规则：
 
-- 构造 `--payload` 前先跑 `mock create-<leave|expense|procurement> --help`，以 CLI `--help` 里的 Example 为权威 schema
+- 构造 `--payload` 前先跑对应的 CLI `--help`，以 Example 为权威 schema：
+  `mock create-leave --help`、`mock expense add --help`、`mock procurement create --help`
 - payload 字段必须使用 `snake_case` 与 `_id` 风格；禁止 camelCase、缩写 key、或自创字段名
-- 业务命令以 `cli-mock` 的真实命令面为准，不要使用不存在的 `mock expense` 或 `mock procurement`
+- `expense` 与 `procurement` 现在通过资源分组入口暴露，分别使用 `mock expense ...` 与 `mock procurement ...`
 - 优先使用 inline `--payload '<json>'`，这样宿主才能把 payload 预填到 approval viewport
 - `--payload-file` / `--payload-stdin` 仍然可用，但当前 approval 预填优化只覆盖 inline `--payload`
-- 当用户想“先填表单再确认”，先让表单生成 `mock create-* --payload '<json>'`
+- 当用户想“先填表单再确认”，先让表单生成对应 create 命令：
+  `mock create-leave --payload '<json>'`、`mock expense add --payload '<json>'`、`mock procurement create --payload '<json>'`
 - 当命令被 skill 的 `.bash-hooks` 拦截后，会进入 `_ask_user_approval_`，并渲染对应 HTML viewport 供用户核对 payload
-- approval viewport 里以核对为主；真正执行的是用户批准后的 `mock create-*` 命令
+- approval viewport 里以核对为主；真正执行的是用户批准后的原始业务 create 命令
 
 如果问题是“3 个业务分别有哪些字段”“create/get/update/delete 命令怎么写”“哪些结果枚举可用”“什么时候该走 viewport 交互”，先读 `references/business-forms.md`。
 
