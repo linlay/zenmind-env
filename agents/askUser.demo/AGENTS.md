@@ -80,7 +80,60 @@
    - `leave_form`
    - `expense_form`
    - `procurement_form`
-8. 最终只根据真实审批结果和真实工具结果汇报，不得脑补“已经执行成功”
+8. 若审批通过并获得最终提交 payload，最终回答优先用对应 `viewport` 视图块展示这个原始 payload
+9. 最终只根据真实审批结果和真实工具结果汇报，不得脑补“已经执行成功”
+
+### 业务枚举字典
+
+业务字段能用枚举时，必须优先使用 `_ask_user_question_` 的 `type=select` 或 `type=multi-select`，不要让用户手填枚举值。
+
+- `employees`：`E1001`（张三）、`E2001`（李四）、`MGR100`（王经理）、`FIN200`（陈财务）
+- `departments`：`engineering`（工程部）、`finance`（财务部）、`hr`（人力资源部）
+- `leave_type`：`annual`（年假）、`sick`（病假）、`personal`（事假）
+- `expense_type`：`travel`（差旅）、`meal`（餐饮）、`equipment`（设备）、`other`（其他）
+- `items[].category`：`transport`（交通）、`hotel`（住宿）、`meal`（餐饮）、`other`（其他）
+- `currency`：`CNY`（人民币）、`USD`（美元）
+
+### 业务字段与提问类型
+
+`leave_form` 对应 `mock create-leave --payload '<json>'`：
+
+- `applicant_id`：员工枚举，使用 `type=select`
+- `department_id`：部门枚举，使用 `type=select`
+- `leave_type`：请假类型枚举，使用 `type=select`
+- `start_date`、`end_date`：日期文本，要求 `YYYY-MM-DD`
+- `days`：数值，使用 `type=number`
+- `reason`：自由文本，使用 `type=text`
+
+`expense_form` 对应 `mock expense add --payload '<json>'`：
+
+- `employee.id`：员工枚举，使用 `type=select`；`employee.name` 必须按员工 ID 自动填入对应中文名
+- `department.code`：部门枚举，使用 `type=select`；`department.name` 必须按部门 code 自动填入对应中文名
+- `expense_type`：报销类型枚举，使用 `type=select`
+- `currency`：币种枚举，使用 `type=select`
+- `total_amount`：数值，使用 `type=number`，并应等于 `items[].amount` 之和
+- `items[].category`：明细类别枚举，使用 `type=select`
+- `items[].amount`：数值，使用 `type=number`
+- `items[].invoice_id`、`items[].description`：自由文本，使用 `type=text`
+- `items[].occurred_on`：日期文本，要求 `YYYY-MM-DD`
+- `submitted_at`：时间文本，优先使用 ISO 8601 字符串
+
+`procurement_form` 对应 `mock procurement create --payload '<json>'`：
+
+- `requester_id`：员工枚举，使用 `type=select`
+- `department`：部门枚举，使用 `type=select`
+- `budget_code`、`reason`、`delivery_city`：自由文本，使用 `type=text`
+- `items[].name`、`items[].vendor`：自由文本，使用 `type=text`
+- `items[].quantity`、`items[].unit_price`：数值，使用 `type=number`
+- `approvers[]`：员工枚举，使用 `type=multi-select`
+- `requested_at`：时间文本，优先使用 ISO 8601 字符串
+
+### 提问与 payload 约束
+
+- 枚举字段的 `options[].label` 必须包含枚举值本身，建议格式如 `E1001 张三`、`engineering 工程部`
+- 如果用户已经给出合法枚举值，不要重复询问；如果给出中文名称，可映射为对应枚举值
+- 生成 payload 时只使用表单字段列出的 key，禁止 camelCase、缩写 key 或自创字段
+- 业务 create 命令必须使用 inline `--payload '<json>'`，不要使用 `--payload-file`、`--payload-stdin` 或管道传入 payload
 
 ## 5. 推荐路由
 
@@ -114,6 +167,8 @@
 3. 如果命令进入 HITL，说明是在哪一步等待用户确认。
 4. 如果 mock 命令执行成功，说明实际执行的是哪条命令；如果只是展示了 question dialog 或审批 viewport，也必须明确这仍在等待用户交互。
 5. 不要把 viewport 展示本身描述成“命令已成功执行”。
+6. 如果 mock 业务命令审批通过并真实执行，最终回答优先输出对应业务表单 viewport 块展示最终提交 payload。
+7. 如果审批被拒绝、超时或命令没有真实执行，不要输出“最终结果”viewport，只说明未执行状态和真实原因。
 
 ## 7. 输出与视图
 
@@ -121,10 +176,32 @@
 
 ```viewport
 type=TYPE, key=KEY
-{填充tool.result的json}
+{填充原始 payload 的 json}
 ```
 
 其中：
 
 - `type` 只能是 `html` 或 `qlc`
 - `key` 必须来自工具结果或工具提示
+- 对业务表单展示，viewport 块内只能放原始 payload 本身，也就是直接的 `{key:value}`
+- 不要为了“展示详情”再包装 `title`、`form_type`、`request_id`、`fields`、`status`、`action` 等外层结构，除非这些字段本来就在原始 payload 里
+- 对 `leave_form`、`expense_form`、`procurement_form`，优先展示拦截事件中的 `forms[0].payload` 或等价原始 payload
+- mock 业务 CLI 调用完成后，如果真实结果里能确认最终提交 payload，最终回答优先展示对应 viewport：
+  - `mock create-leave` 使用 `type=html, key=leave_form`
+  - `mock expense add` 使用 `type=html, key=expense_form`
+  - `mock procurement create` 使用 `type=html, key=procurement_form`
+- 若命令只是进入审批等待、被拒绝、超时或未执行，不要为了“展示一下”输出最终结果 viewport
+
+示例：
+
+```viewport type=html, key=leave_form
+{
+  "applicant_id": "E1001",
+  "department_id": "engineering",
+  "leave_type": "annual",
+  "start_date": "2026-04-20",
+  "end_date": "2026-04-22",
+  "days": 2.5,
+  "reason": "family_trip"
+}
+```

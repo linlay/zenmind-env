@@ -117,7 +117,7 @@ copy_top_level_files() {
   while IFS= read -r -d '' path; do
     rel="${path#$WORKSPACE_ROOT/}"
     case "$rel" in
-      .DS_Store)
+      .DS_Store|.gitignore|archive.sh|CLAUDE.md|README.md|package-httpx-config.sh|package.sh)
         continue
         ;;
     esac
@@ -151,10 +151,12 @@ copy_tree() {
         ;;
       agents)
         case "$rel" in
-          .DS_Store|*/.DS_Store|*.demo|*.demo/*|*/skills|*/skills/*)
+          .DS_Store|*/.DS_Store|*.demo|*.demo/*|zenmi/skills|zenmi/skills/*)
             continue
             ;;
-          zenmi|zenmi/agent.yml|zenmi/AGENTS.md|zenmi/SOUL.md|zenmi/agent.real.yml|zenmi/agent.real\ copy.yml|zenmi/AGENTS.real.md|zenmi/agent.example.yml|zenmi/AGENTS.example.md|zenmi/SOUL.example.md)
+          zenmi|zenmi/*.example.yml|zenmi/*.example.md|zenmi/*.real.yml|zenmi/*.real.md)
+            ;;
+          *)
             continue
             ;;
         esac
@@ -181,7 +183,19 @@ copy_tree() {
           continue
         fi
         ;;
-      schedules|teams)
+      schedules)
+        case "$rel" in
+          .DS_Store|*/.DS_Store)
+            continue
+            ;;
+          README.md|builtin_daily.example.yml)
+            ;;
+          *)
+            continue
+            ;;
+        esac
+        ;;
+      teams)
         case "$rel" in
           .DS_Store|*/.DS_Store|*.demo.yml|*.demo.yaml|*.demo|*.demo/*)
             continue
@@ -242,13 +256,12 @@ main() {
   copy_top_level_files
   copy_tree "$WORKSPACE_ROOT/agents" "agents" "strip-example" "agents"
   copy_tree "$WORKSPACE_ROOT/skills-market" "skills-market" "preserve" "generic"
-  copy_tree "$WORKSPACE_ROOT/tools" "tools" "preserve" "generic"
   copy_tree "$WORKSPACE_ROOT/pan" "pan" "preserve" "generic"
-  copy_tree "$WORKSPACE_ROOT/schedules" "schedules" "strip-example" "schedules"
-  copy_tree "$WORKSPACE_ROOT/teams" "teams" "strip-example" "teams"
+  copy_tree "$WORKSPACE_ROOT/schedules" "schedules" "preserve" "schedules"
+  copy_tree "$WORKSPACE_ROOT/teams" "teams" "preserve" "teams"
   copy_tree "$WORKSPACE_ROOT/chats" "chats" "preserve" "chats"
   copy_tree "$WORKSPACE_ROOT/root" "root" "strip-example" "root"
-  copy_tree "$WORKSPACE_ROOT/registries.example" "registries" "strip-example" "generic"
+  copy_tree "$WORKSPACE_ROOT/registries.example" "registries" "preserve" "generic"
   copy_tree "$WORKSPACE_ROOT/owner.example" "owner" "strip-example" "generic"
 
   (
