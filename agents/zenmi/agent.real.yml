@@ -30,12 +30,9 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
-    - sandbox
     - all-agents
-    - memory
-    - registries
 mode: REACT
 budget:
   runTimeoutMs: 1800000

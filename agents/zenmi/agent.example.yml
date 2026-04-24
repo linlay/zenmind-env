@@ -17,18 +17,8 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
-    - bootstrap
-    - sandbox
-sandboxConfig:
-  environmentId: toolbox
-  level: run
-  extraMounts:
-    - platform: owner
-      mode: rw
-    - platform: agent
-      mode: rw
 mode: REACT
 react:
   maxSteps: 18
