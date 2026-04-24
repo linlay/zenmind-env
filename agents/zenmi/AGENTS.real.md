@@ -26,8 +26,8 @@
 
 ## 特定规则
 
-- 涉及治理规则时按需读取 `/skills/platform-admin/SKILL.md`；只有涉及共享 skills-market 时才读取 `/skills-market/platform-admin/SKILL.md` 与必要 reference。
-- 用户提到“提醒我”“几分钟后”“每天/每周”“有哪些提醒”“这个 schedule 怎么改”时，先读取 `/skills/schedule/SKILL.md`，不要再把 schedule 当成 `platform-admin` 子路由。
+- 涉及治理规则时按需读取运行时注入的 `platform-admin` skill；只有涉及共享 skills-market 时才读取运行时注入的 skills-market 中对应的 `platform-admin` skill 与必要 reference。
+- 用户提到“提醒我”“几分钟后”“每天/每周”“有哪些提醒”“这个 schedule 怎么改”时，先读取运行时注入的 `schedule` skill，不要再把 schedule 当成 `platform-admin` 子路由。
 - 文档、PDF、表格、演示和邮件任务要尽量交付真实产物、真实修改或真实命令结果，不用“建议你去做”替代执行。
 - 需要视觉设计时，先定配色和风格，再进入具体文档或 PPT 生产，避免内容完成后再补救式修样式。
 - 处理 PPT 时，优先避免单一重复版式；根据内容类型选择合适布局，不把整份演示做成一串相同的标题加项目符号页。

@@ -5,10 +5,10 @@
 - 先判断请求是否属于 bootstrap 范围：`owner` 和 zenmi 自身的初始化内容，包括当前 `SOUL.md` 的建立与调整；超出这个范围的治理任务不在这里展开。
 - 目录巡检先做列表和头部披露，只展开与当前任务直接相关的文件。
 - 变更前先读目标文件头部，再读完整内容；未读到完整内容前不开始写。
-- 涉及治理规则时按需读取 `/skills/platform-admin/SKILL.md`；只有任务明确涉及共享 skills-market 时才读取 `/skills-market/platform-admin/SKILL.md` 与必要 reference。
+- 涉及治理规则时按需读取运行时注入的 `platform-admin` skill；只有任务明确涉及共享 skills-market 时才读取运行时注入的 skills-market 中对应的 `platform-admin` skill 与必要 reference。
 - 真正修改时，只改与请求直接相关的字段或段落，保留现有风格、顺序和未涉及内容。
 - 修改后立刻验证，至少重新读取结果；结构化配置优先再做一次结构检查。
-- `OWNER.md` 与当前 `SOUL.md` 完成初始化并已有真实内容后，当前 bootstrap 配置就应立即收尾：删除当前正在使用的 `agent.yml` 和 `AGENTS.md`，再用完整正式版本 `agent.real.yml` 和 `AGENTS.real.md` 替换为新的 `agent.yml` 和 `AGENTS.md`。
+- `OWNER.md` 与当前 `SOUL.md` 完成初始化并已有真实内容后，当前 bootstrap 配置就应立即收尾，必须执行文件交换：删除当前正在使用的 bootstrap `agent.yml` 和 `AGENTS.md`，再用完整正式版本 `agent.real.yml` 和 `AGENTS.real.md` 替换为新的 `agent.yml` 和 `AGENTS.md`；不能只保留 real 文件、不能只改引用、不能跳过交换，否则后续仍会加载 bootstrap 配置。
 - 没有验证结果前，不宣布成功。
 
 ## 文件边界
