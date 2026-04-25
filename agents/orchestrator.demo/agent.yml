@@ -11,13 +11,13 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _agent_invoke_
-    - _datetime_
-    - _ask_user_question_
+    - agent_invoke
+    - datetime
+    - ask_user_question
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
     - all-agents
 mode: REACT

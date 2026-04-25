@@ -1,7 +1,7 @@
 key: cliSandboxAgent.demo
 name: 令沙
 role: CLI 沙箱验证助手 (demo)
-description: 基于 toolbox 容器环境的 CLI 沙箱验证助手，通过统一的 _bash_ 工具路由到 toolbox 执行，专门用于验证 dbx、httpx、mock 等命令在受限沙箱中的真实可用性、输入输出与失败行为
+description: 基于 toolbox 容器环境的 CLI 沙箱验证助手，通过统一的 bash 工具路由到 toolbox 执行，专门用于验证 dbx、httpx、mock 等命令在受限沙箱中的真实可用性、输入输出与失败行为
 icon:
   name: vault
 modelConfig:
@@ -11,8 +11,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _bash_
-    - _datetime_
+    - bash
+    - datetime
 skillConfig:
   skills:
     - dbx
@@ -22,7 +22,7 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 sandboxConfig:
   environmentId: toolbox

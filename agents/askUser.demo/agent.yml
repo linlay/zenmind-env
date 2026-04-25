@@ -11,16 +11,16 @@ modelConfig:
     enabled: false
 toolConfig:
   tools:
-    - _datetime_
-    - _ask_user_question_
-    - _bash_
+    - datetime
+    - ask_user_question
+    - bash
 skillConfig:
   skills:
     - mock
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 budget:
   runTimeoutMs: 600000

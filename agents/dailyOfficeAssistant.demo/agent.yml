@@ -11,8 +11,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _datetime_
-    - _artifact_publish_
+    - datetime
+    - artifact_publish
 skillConfig:
   skills:
     - docx
@@ -25,7 +25,7 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 sandboxConfig:
   environmentId: daily-office

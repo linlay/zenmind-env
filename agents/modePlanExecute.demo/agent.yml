@@ -8,7 +8,7 @@ mode: PLAN_EXECUTE
 toolConfig:
   tools:
     - mock.ops.runbook.generate
-    - _datetime_
+    - datetime
     - mock.weather.query
     - mock.sensitive-data.detect
 sandboxConfig:

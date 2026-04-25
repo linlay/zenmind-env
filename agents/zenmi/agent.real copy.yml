@@ -11,9 +11,9 @@ modelConfig:
     effort: HIGH
 toolConfig:
   tools:
-    - _artifact_publish_
-    - _datetime_
-    - _ask_user_question_
+    - artifact_publish
+    - datetime
+    - ask_user_question
 skillConfig:
   skills:
     - platform-admin
@@ -30,11 +30,9 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
-    - sandbox
     - all-agents
-    - memory
     - registries
 sandboxConfig:
   environmentId: daily-office-pro

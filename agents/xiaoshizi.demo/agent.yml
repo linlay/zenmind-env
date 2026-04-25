@@ -11,16 +11,15 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _datetime_
+    - datetime
 skillConfig:
   skills:
     - pdf
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
-    - sandbox
 sandboxConfig:
   environmentId: daily-office
   level: run

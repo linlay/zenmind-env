@@ -12,7 +12,7 @@ modelConfig:
     effort: LOW
 toolConfig:
   tools:
-    - _datetime_
+    - datetime
 react:
   maxSteps: 20
 wonders:

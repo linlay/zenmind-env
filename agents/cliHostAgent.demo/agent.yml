@@ -1,7 +1,7 @@
 key: cliHostAgent.demo
 name: 令宿
 role: CLI 宿主机验证助手 (demo)
-description: 基于宿主机环境的 CLI 验证助手，通过统一的 _bash_ 工具在宿主机执行，专门用于验证 dbx、httpx、mock 等命令在非沙箱环境中的真实可用性、输入输出与失败行为
+description: 基于宿主机环境的 CLI 验证助手，通过统一的 bash 工具在宿主机执行，专门用于验证 dbx、httpx、mock 等命令在非沙箱环境中的真实可用性、输入输出与失败行为
 icon:
   name: node
 modelConfig:
@@ -11,8 +11,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _bash_
-    - _datetime_
+    - bash
+    - datetime
 skillConfig:
   skills:
     - dbx
@@ -22,7 +22,7 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 budget:
   runTimeoutMs: 1800000

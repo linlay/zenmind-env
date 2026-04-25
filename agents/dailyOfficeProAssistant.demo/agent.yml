@@ -11,8 +11,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _datetime_
-    - _artifact_publish_
+    - datetime
+    - artifact_publish
 skillConfig:
   skills:
     - color-font-skill
@@ -28,7 +28,7 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 sandboxConfig:
   environmentId: daily-office-pro

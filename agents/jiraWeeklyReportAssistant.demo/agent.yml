@@ -11,8 +11,8 @@ modelConfig:
     effort: MEDIUM
 toolConfig:
   tools:
-    - _datetime_
-    - _artifact_publish_
+    - datetime
+    - artifact_publish
 skillConfig:
   skills:
     - jira-weekly-report-generator
@@ -21,9 +21,8 @@ skillConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
-    - sandbox
 sandboxConfig:
   environmentId: daily-office-pro
   level: run

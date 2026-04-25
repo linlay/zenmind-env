@@ -13,7 +13,7 @@ modelConfig:
 contextConfig:
   tags:
     - system
-    - context
+    - session
     - owner
 controls:
   - key: answer_style
@@ -40,7 +40,7 @@ controls:
     defaultValue: true
 toolConfig:
   tools:
-    - _datetime_
+    - datetime
     - mock.weather.query
     - mock.sensitive-data.detect
 sandboxConfig:
