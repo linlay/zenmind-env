@@ -30,7 +30,7 @@ contextConfig:
     - system
     - session
     - owner
-sandboxConfig:
+runtimeConfig:
   environmentId: daily-office-pro
   level: run
 budget:

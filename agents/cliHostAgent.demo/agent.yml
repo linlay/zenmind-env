@@ -19,6 +19,7 @@ skillConfig:
     - httpx
     - imagine
     - mock
+    - cdp
 contextConfig:
   tags:
     - system

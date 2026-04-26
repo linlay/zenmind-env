@@ -24,7 +24,7 @@ contextConfig:
     - system
     - session
     - owner
-sandboxConfig:
+runtimeConfig:
   environmentId: toolbox
   level: run
   env:

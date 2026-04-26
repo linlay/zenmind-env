@@ -3,7 +3,10 @@
 ## 执行原则
 
 - 仅当任务进入真实 CLI 验证且当前可用性未知时，先做能力探测；不要把固定探测清单机械套到所有请求上。
-- 涉及 `dbx`、`httpx`、`mock` 时，优先读取对应 `skills/<skill>/SKILL.md`；若 skill 不存在，再走 CLI 自带 `--help` 或 discovery 子命令。
+- 涉及 `dbx`、`httpx`、`mock`、`cdp` 时，优先读取对应 `skills/<skill>/SKILL.md`；若真实 CLI skill 不存在，再走 CLI 自带 `--help` 或 discovery 子命令。
+- 涉及浏览器打开、切换网页、导航、截图、执行 JS、查询或操作 DOM 时，必须先读取 `skills/cdp/SKILL.md`，再按其中的 `curl` + Node helper 流程操作。
+- `cdp` 是 skill，不是 CLI 命令；不要执行 `cdp --help` 或 `which cdp` 作为 `cdp` skill 的探测方式。
+- macOS `open` 不能作为 CDP 自动化成功证明；它只能作为非 CDP fallback，且不能替代 `/json/version`、tab list、`Page.navigate`、`Runtime.evaluate` 等 CDP 验证。
 - 优先使用 CLI 暴露的稳定命令面，不直接猜参数，也不把原始 config、state、local 文件当作默认入口。
 
 ## 校验纪律

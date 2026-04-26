@@ -43,7 +43,7 @@ toolConfig:
     - datetime
     - mock.weather.query
     - mock.sensitive-data.detect
-sandboxConfig:
+runtimeConfig:
   environmentId: shell
   level: run
 react:

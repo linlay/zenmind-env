@@ -34,7 +34,7 @@ contextConfig:
     - owner
     - all-agents
     - registries
-sandboxConfig:
+runtimeConfig:
   environmentId: daily-office-pro
   level: run
   extraMounts:
